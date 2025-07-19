@@ -13,14 +13,14 @@ export default function AboutSection() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-lg text-foreground leading-relaxed mb-6">
-                I'm a dedicated Java Developer with expertise in building robust backend systems and web applications. 
-                My experience spans across Spring Boot, JSP/Servlets, and database management with a strong focus 
-                on creating scalable and maintainable solutions.
+                I'm a motivated Frontend Developer with strong knowledge of React, Tailwind CSS, and responsive design. 
+                My experience includes building and delivering multiple production-ready websites with modern UI, 
+                reusable components, and API integration.
               </p>
               <p className="text-lg text-foreground leading-relaxed mb-6">
                 Currently completing my B.Tech in Engineering with a CGPA of 8.1, I combine academic knowledge 
-                with practical experience gained through internships and personal projects. I'm passionate about 
-                clean code practices and continuous learning in the ever-evolving tech landscape.
+                with practical freelance and internship experience. I'm a fast learner, team collaborator, and 
+                passionate about clean, scalable code that delivers exceptional user experiences.
               </p>
               
               <div className="flex flex-wrap gap-3">
@@ -38,7 +38,7 @@ export default function AboutSection() {
                   <div className="space-y-3 text-foreground">
                     <div className="flex items-center">
                       <Mail className="text-primary w-5 h-5 mr-3" />
-                      <span>thirutechdeveloper@gmail.com</span>
+                      <span>thirumalaideveloper@gmail.com</span>
                     </div>
                     <div className="flex items-center">
                       <Phone className="text-primary w-5 h-5 mr-3" />

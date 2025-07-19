@@ -54,7 +54,7 @@ export default function Navigation() {
             className="text-xl font-bold text-primary cursor-pointer"
             onClick={() => scrollToSection("home")}
           >
-            Thirumalai G
+            GT
           </div>
           
           {/* Desktop Navigation */}

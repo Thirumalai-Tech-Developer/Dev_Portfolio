@@ -4,32 +4,32 @@ import { Code, Wrench, Layers, Users } from "lucide-react";
 export default function SkillsSection() {
   const skillCategories = [
     {
-      title: "Languages",
+      title: "Frontend Languages",
       icon: Code,
       iconBg: "bg-blue-500",
       color: "bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800",
-      skills: ["Java", "SQL"]
+      skills: ["JavaScript", "HTML", "CSS"]
     },
     {
-      title: "Tools & Frameworks",
+      title: "Frontend Frameworks",
       icon: Wrench,
       iconBg: "bg-green-500",
       color: "bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800",
-      skills: ["Spring Boot", "Android Studio"]
+      skills: ["React.js", "Tailwind CSS", "Vite"]
     },
     {
-      title: "Domains",
+      title: "Backend & Tools",
       icon: Layers,
       iconBg: "bg-purple-500",
       color: "bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800",
-      skills: ["Application Development", "Web Development"]
+      skills: ["Node.js", "Express", "Git", "GitHub"]
     },
     {
-      title: "Soft Skills",
+      title: "Specializations",
       icon: Users,
-      iconBg: "bg-pink-500",
-      color: "bg-pink-50 dark:bg-pink-900/20 border border-pink-200 dark:border-pink-800",
-      skills: ["Problem Solving", "Teamwork", "Fast Learner"]
+      iconBg: "bg-orange-500",
+      color: "bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800",
+      skills: ["Responsive Design", "SEO Basics", "Component Architecture"]
     }
   ];
 

@@ -6,28 +6,28 @@ import { FaGithub } from "react-icons/fa";
 export default function ProjectsSection() {
   const projects = [
     {
-      title: "Cartoon Returns",
-      subtitle: "Kids OTT Platform",
-      description: "A comprehensive OTT platform designed specifically for kids, featuring a safe and engaging environment for children's entertainment content.",
-      technologies: ["Java", "Spring Boot", "Tailwind CSS"],
+      title: "ZFusionAI",
+      subtitle: "Company Website",
+      description: "Created a fully responsive company website using React + Vite in 2 days. Applied Tailwind for fast UI styling and smooth layout handling with focus on component reusability and performance optimization.",
+      technologies: ["React", "Vite", "Tailwind CSS"],
       icon: PlayCircle,
-      gradient: "from-pink-400 via-purple-400 to-blue-400"
+      gradient: "from-blue-400 via-purple-400 to-pink-400"
     },
     {
-      title: "Ductile JDBC",
-      subtitle: "Auto SQL Query Creator",
-      description: "An intelligent SQL query generator that automates database operations, supporting CRUD operations and advanced features for enhanced productivity.",
-      technologies: ["Java", "JDBC", "SQL"],
+      title: "Developer Search Engine",
+      subtitle: "Content Discovery Platform",
+      description: "Built a search platform to fetch YouTube videos and web articles by keyword. Used React for frontend and Node.js for backend API communication with focus on user experience.",
+      technologies: ["React", "Node.js", "API Integration"],
       icon: Database,
       gradient: "from-green-400 to-cyan-400"
     },
     {
-      title: "Mobile RGB LED Controller",
-      subtitle: "RGB Controller for POCO F3 GT",
-      description: "A specialized Android application that provides RGB lighting control for POCO F3 GT devices, utilizing Magisk and SuperUser access for system-level customization.",
-      technologies: ["Android Studio", "Magisk", "SuperUser"],
+      title: "Portfolio Projects",
+      subtitle: "Custom Web Applications",
+      description: "Designed and delivered 4 custom web applications for freelance clients using modern web technologies. Integrated public APIs and improved client UX through visual enhancements.",
+      technologies: ["React", "HTML/CSS", "Tailwind"],
       icon: Smartphone,
-      gradient: "from-red-400 via-yellow-400 to-pink-400"
+      gradient: "from-orange-400 via-red-400 to-pink-400"
     }
   ];
 

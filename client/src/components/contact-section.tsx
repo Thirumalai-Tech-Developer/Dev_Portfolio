@@ -63,7 +63,7 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <p className="font-medium text-secondary-foreground">Email</p>
-                    <p className="text-secondary-foreground/80">thirutechdeveloper@gmail.com</p>
+                    <p className="text-secondary-foreground/80">thirumalaideveloper@gmail.com</p>
                   </div>
                 </div>
                 <div className="flex items-center">

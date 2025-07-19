@@ -29,11 +29,12 @@ export default function HeroSection() {
             Thirumalai G
           </h1>
           <h2 className="text-2xl md:text-3xl text-primary font-medium mb-6">
-            Java Tech Developer
+            Full Stack Web Developer
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
-            Passionate Java Developer with experience in building scalable backend systems and web applications. 
-            Focused on clean code, performance optimization, and solving real-world problems through technology.
+            Motivated Frontend Developer with strong expertise in React, Tailwind CSS, and responsive design. 
+            Built and delivered multiple production-ready websites with modern UI, reusable components, and API integration. 
+            Passionate about clean, scalable code and exceptional user experiences.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

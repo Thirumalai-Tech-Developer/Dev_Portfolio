@@ -33,15 +33,49 @@ export default function ExperienceSection() {
                     <ul className="text-foreground space-y-2">
                       <li className="flex items-start">
                         <CheckCircle className="text-accent w-4 h-4 mt-1 mr-3 flex-shrink-0" />
-                        Worked on 5+ projects involving full-stack development
+                        Contributed to 5+ client-facing web applications using modern web technologies
                       </li>
                       <li className="flex items-start">
                         <CheckCircle className="text-accent w-4 h-4 mt-1 mr-3 flex-shrink-0" />
-                        Collaborated with clients to resolve technical issues and optimize performance
+                        Built reusable React Components and optimized frontend performance
                       </li>
                       <li className="flex items-start">
                         <CheckCircle className="text-accent w-4 h-4 mt-1 mr-3 flex-shrink-0" />
-                        Enhanced system performance through code optimization and best practices
+                        Collaborated with teams to deliver high-quality user experiences
+                      </li>
+                    </ul>
+                  </CardContent>
+                </Card>
+              </div>
+              
+              <div className="flex items-start mb-8">
+                <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center mr-6 mt-1 relative z-10">
+                  <Briefcase className="text-white w-4 h-4" />
+                </div>
+                <Card className="flex-1 shadow-sm bg-background dark:bg-card">
+                  <CardContent className="p-6">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                      <div>
+                        <h3 className="text-xl font-semibold text-foreground">Freelance Developer</h3>
+                        <p className="text-primary font-medium">Remote</p>
+                      </div>
+                      <div className="text-muted-foreground text-sm mt-2 md:mt-0 flex items-center">
+                        <Calendar className="w-4 h-4 mr-1" />
+                        <span>Nov 2024 – Dec 2024</span>
+                      </div>
+                    </div>
+                    <ul className="text-foreground space-y-2">
+                      <li className="flex items-start">
+                        <CheckCircle className="text-accent w-4 h-4 mt-1 mr-3 flex-shrink-0" />
+                        Designed and delivered 4 custom web applications using React, HTML/CSS, and Tailwind
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="text-accent w-4 h-4 mt-1 mr-3 flex-shrink-0" />
+                        Integrated public APIs and improved client UX through visual enhancements
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="text-accent w-4 h-4 mt-1 mr-3 flex-shrink-0" />
+                        Delivered projects on time with focus on responsive design and performance
                       </li>
                     </ul>
                   </CardContent>
