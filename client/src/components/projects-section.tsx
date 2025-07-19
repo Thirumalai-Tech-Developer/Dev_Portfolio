@@ -14,12 +14,36 @@ export default function ProjectsSection() {
       gradient: "from-blue-400 via-purple-400 to-pink-400"
     },
     {
+      title: "Cartoon Returns",
+      subtitle: "Kids OTT Platform",
+      description: "Built a comprehensive OTT platform for kids using Java and Spring Boot. Features safe content management, user authentication, and scalable backend architecture for streaming services.",
+      technologies: ["Java", "Spring Boot", "Tailwind CSS"],
+      icon: PlayCircle,
+      gradient: "from-pink-400 via-purple-400 to-blue-400"
+    },
+    {
+      title: "Ductile JDBC",
+      subtitle: "Auto SQL Query Creator",
+      description: "Developed an intelligent SQL query generator using Java and JDBC. Automates database operations with CRUD functionality and advanced features for enhanced developer productivity.",
+      technologies: ["Java", "JDBC", "SQL"],
+      icon: Database,
+      gradient: "from-green-400 to-cyan-400"
+    },
+    {
       title: "Developer Search Engine",
       subtitle: "Content Discovery Platform",
       description: "Built a search platform to fetch YouTube videos and web articles by keyword. Used React for frontend and Node.js for backend API communication with focus on user experience.",
       technologies: ["React", "Node.js", "API Integration"],
       icon: Database,
-      gradient: "from-green-400 to-cyan-400"
+      gradient: "from-cyan-400 to-blue-400"
+    },
+    {
+      title: "Mobile RGB LED Controller",
+      subtitle: "Android Application",
+      description: "Developed a specialized Android app for RGB lighting control on POCO F3 GT devices. Utilizes system-level access through Magisk and SuperUser permissions for hardware customization.",
+      technologies: ["Android Studio", "Java", "System Integration"],
+      icon: Smartphone,
+      gradient: "from-red-400 via-yellow-400 to-pink-400"
     },
     {
       title: "Portfolio Projects",

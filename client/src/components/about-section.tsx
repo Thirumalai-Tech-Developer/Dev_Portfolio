@@ -13,14 +13,14 @@ export default function AboutSection() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-lg text-foreground leading-relaxed mb-6">
-                I'm a motivated Frontend Developer with strong knowledge of React, Tailwind CSS, and responsive design. 
-                My experience includes building and delivering multiple production-ready websites with modern UI, 
-                reusable components, and API integration.
+                I'm a full-stack developer with expertise spanning modern frontend technologies (React, Tailwind CSS) 
+                and Java backend development (Spring Boot, SQL). My experience includes building production-ready 
+                web applications, mobile applications, and scalable backend systems with clean architecture.
               </p>
               <p className="text-lg text-foreground leading-relaxed mb-6">
                 Currently completing my B.Tech in Engineering with a CGPA of 8.1, I combine academic knowledge 
                 with practical freelance and internship experience. I'm a fast learner, team collaborator, and 
-                passionate about clean, scalable code that delivers exceptional user experiences.
+                passionate about delivering high-quality solutions across the full technology stack.
               </p>
               
               <div className="flex flex-wrap gap-3">

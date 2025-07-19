@@ -32,9 +32,9 @@ export default function HeroSection() {
             Full Stack Web Developer
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
-            Motivated Frontend Developer with strong expertise in React, Tailwind CSS, and responsive design. 
-            Built and delivered multiple production-ready websites with modern UI, reusable components, and API integration. 
-            Passionate about clean, scalable code and exceptional user experiences.
+            Full-stack developer with expertise in both modern frontend technologies (React, Tailwind CSS) and Java backend development (Spring Boot, SQL). 
+            Built and delivered production-ready web applications with modern UI, reusable components, API integration, and scalable backend systems. 
+            Passionate about clean, maintainable code and exceptional user experiences.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
