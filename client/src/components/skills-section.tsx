@@ -35,10 +35,10 @@ export default function SkillsSection() {
   ];
 
   return (
-    <section id="skills" className="py-20 bg-white">
+    <section id="skills" className="py-20 bg-background dark:bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-12 text-center">Skills & Technologies</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">Skills & Technologies</h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {skillCategories.map((category, index) => {
@@ -48,12 +48,12 @@ export default function SkillsSection() {
                   <div className={`w-16 h-16 ${category.color} rounded-xl flex items-center justify-center mx-auto mb-4`}>
                     <IconComponent className="w-8 h-8" />
                   </div>
-                  <h3 className="text-lg font-semibold text-secondary mb-4">{category.title}</h3>
+                  <h3 className="text-lg font-semibold text-foreground mb-4">{category.title}</h3>
                   <div className="space-y-2">
                     {category.skills.map((skill, skillIndex) => (
-                      <Card key={skillIndex} className="bg-neutral-50">
+                      <Card key={skillIndex} className="bg-muted dark:bg-card">
                         <CardContent className="px-4 py-2">
-                          <span className="font-medium text-sm">{skill}</span>
+                          <span className="font-medium text-sm text-foreground">{skill}</span>
                         </CardContent>
                       </Card>
                     ))}
@@ -65,12 +65,12 @@ export default function SkillsSection() {
 
           {/* Languages Spoken */}
           <div className="mt-16 text-center">
-            <h3 className="text-xl font-semibold text-secondary mb-6">Languages Spoken</h3>
+            <h3 className="text-xl font-semibold text-foreground mb-6">Languages Spoken</h3>
             <div className="flex justify-center space-x-6">
               {languages.map((lang, index) => (
                 <div key={index} className="flex items-center">
                   <div className={`w-3 h-3 ${lang.color} rounded-full mr-2`}></div>
-                  <span className="font-medium">{lang.name} ({lang.level})</span>
+                  <span className="font-medium text-foreground">{lang.name} ({lang.level})</span>
                 </div>
               ))}
             </div>

@@ -44,11 +44,11 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-secondary text-white">
+    <section id="contact" className="py-20 bg-secondary dark:bg-secondary text-white">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Let's Work Together</h2>
-          <p className="text-lg text-white/80 mb-12 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-secondary-foreground">Let's Work Together</h2>
+          <p className="text-lg text-secondary-foreground/80 mb-12 max-w-2xl mx-auto">
             I'm always interested in new opportunities and collaborations. 
             Feel free to reach out if you'd like to discuss a project or just say hello!
           </p>
@@ -62,32 +62,32 @@ export default function ContactSection() {
                     <Mail className="text-white w-5 h-5" />
                   </div>
                   <div>
-                    <p className="font-medium">Email</p>
-                    <p className="text-white/80">thirutechdeveloper@gmail.com</p>
+                    <p className="font-medium text-secondary-foreground">Email</p>
+                    <p className="text-secondary-foreground/80">thirutechdeveloper@gmail.com</p>
                   </div>
                 </div>
                 <div className="flex items-center">
                   <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mr-4">
-                    <Phone className="text-white w-5 h-5" />
+                    <Phone className="text-primary-foreground w-5 h-5" />
                   </div>
                   <div>
-                    <p className="font-medium">Phone</p>
-                    <p className="text-white/80">+91 9342389728</p>
+                    <p className="font-medium text-secondary-foreground">Phone</p>
+                    <p className="text-secondary-foreground/80">+91 9342389728</p>
                   </div>
                 </div>
                 <div className="flex items-center">
                   <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mr-4">
-                    <MapPin className="text-white w-5 h-5" />
+                    <MapPin className="text-primary-foreground w-5 h-5" />
                   </div>
                   <div>
-                    <p className="font-medium">Location</p>
-                    <p className="text-white/80">Kallakurichi, Tamil Nadu</p>
+                    <p className="font-medium text-secondary-foreground">Location</p>
+                    <p className="text-secondary-foreground/80">Kallakurichi, Tamil Nadu</p>
                   </div>
                 </div>
               </div>
               
               <div className="mt-8">
-                <h4 className="font-semibold mb-4">Find me on</h4>
+                <h4 className="font-semibold mb-4 text-secondary-foreground">Find me on</h4>
                 <div className="flex space-x-4">
                   <a 
                     href="https://linkedin.com/in/thirumalai-g" 
@@ -110,16 +110,16 @@ export default function ContactSection() {
             </div>
             
             {/* Contact Form */}
-            <Card className="bg-white/5 backdrop-blur-sm border-white/20">
+            <Card className="bg-secondary-foreground/5 backdrop-blur-sm border-secondary-foreground/20">
               <CardContent className="p-8">
-                <h3 className="text-xl font-semibold mb-6">Send a Message</h3>
+                <h3 className="text-xl font-semibold mb-6 text-secondary-foreground">Send a Message</h3>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <Input
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
                     placeholder="Your Name"
-                    className="bg-white/10 border-white/20 text-white placeholder:text-white/60"
+                    className="bg-secondary-foreground/10 border-secondary-foreground/20 text-secondary-foreground placeholder:text-secondary-foreground/60"
                   />
                   <Input
                     name="email"
@@ -127,7 +127,7 @@ export default function ContactSection() {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="Your Email"
-                    className="bg-white/10 border-white/20 text-white placeholder:text-white/60"
+                    className="bg-secondary-foreground/10 border-secondary-foreground/20 text-secondary-foreground placeholder:text-secondary-foreground/60"
                   />
                   <Textarea
                     name="message"
@@ -135,11 +135,11 @@ export default function ContactSection() {
                     onChange={handleInputChange}
                     rows={5}
                     placeholder="Your Message"
-                    className="bg-white/10 border-white/20 text-white placeholder:text-white/60 resize-none"
+                    className="bg-secondary-foreground/10 border-secondary-foreground/20 text-secondary-foreground placeholder:text-secondary-foreground/60 resize-none"
                   />
                   <Button 
                     type="submit" 
-                    className="w-full bg-primary text-white hover:bg-primary/90"
+                    className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
                   >
                     <Send className="mr-2 h-4 w-4" />
                     Send Message

@@ -32,9 +32,9 @@
   --foreground: hsl(0, 0%, 98%);
   --muted: hsl(215, 28%, 17%);
   --muted-foreground: hsl(215, 20%, 65%);
-  --popover: hsl(215, 28%, 7%);
+  --popover: hsl(215, 28%, 10%);
   --popover-foreground: hsl(0, 0%, 98%);
-  --card: hsl(215, 28%, 7%);
+  --card: hsl(215, 28%, 12%);
   --card-foreground: hsl(0, 0%, 98%);
   --border: hsl(215, 28%, 17%);
   --input: hsl(215, 28%, 17%);
@@ -47,6 +47,8 @@
   --destructive: hsl(0, 84%, 60%);
   --destructive-foreground: hsl(0, 0%, 98%);
   --ring: hsl(217, 91%, 60%);
+  --text-primary: hsl(0, 0%, 98%);
+  --neutral-50: hsl(215, 28%, 15%);
 }
 
 @layer base {

@@ -34,16 +34,16 @@ export default function EducationSection() {
   ];
 
   return (
-    <section id="education" className="py-20 bg-white">
+    <section id="education" className="py-20 bg-background dark:bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-12 text-center">Education</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">Education</h2>
           
           <div className="space-y-8">
             {educationData.map((edu, index) => {
               const IconComponent = edu.icon;
               return (
-                <Card key={index} className="bg-neutral-50 shadow-sm">
+                <Card key={index} className="bg-muted/50 dark:bg-card shadow-sm">
                   <CardContent className="p-6">
                     <div className="flex items-start">
                       <div className={`w-12 h-12 ${edu.color} rounded-lg flex items-center justify-center mr-6 flex-shrink-0`}>
@@ -51,13 +51,13 @@ export default function EducationSection() {
                       </div>
                       <div className="flex-1">
                         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                          <h3 className="text-xl font-semibold text-secondary">{edu.degree}</h3>
-                          <Badge variant="secondary" className="bg-accent/10 text-accent mt-2 md:mt-0 self-start">
+                          <h3 className="text-xl font-semibold text-foreground">{edu.degree}</h3>
+                          <Badge variant="secondary" className="bg-accent/10 text-accent dark:bg-accent/20 mt-2 md:mt-0 self-start">
                             {edu.grade}
                           </Badge>
                         </div>
                         <p className="text-primary font-medium mb-2">{edu.institution}</p>
-                        <div className="flex flex-col sm:flex-row sm:items-center text-text-primary/70 text-sm gap-2 sm:gap-4">
+                        <div className="flex flex-col sm:flex-row sm:items-center text-muted-foreground text-sm gap-2 sm:gap-4">
                           <div className="flex items-center">
                             <MapPin className="w-4 h-4 mr-1" />
                             <span>{edu.location}</span>

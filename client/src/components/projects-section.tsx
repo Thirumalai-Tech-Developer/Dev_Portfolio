@@ -32,28 +32,28 @@ export default function ProjectsSection() {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-neutral-50">
+    <section id="projects" className="py-20 bg-muted/50 dark:bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-12 text-center">Featured Projects</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">Featured Projects</h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => {
               const IconComponent = project.icon;
               return (
-                <Card key={index} className="bg-white shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+                <Card key={index} className="bg-background dark:bg-card shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden">
                   <div className={`h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center`}>
                     <IconComponent className="text-white w-16 h-16" />
                   </div>
                   <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold text-secondary mb-2">{project.title}</h3>
+                    <h3 className="text-xl font-semibold text-foreground mb-2">{project.title}</h3>
                     <p className="text-sm text-primary font-medium mb-3">{project.subtitle}</p>
-                    <p className="text-text-primary mb-4 text-sm leading-relaxed">
+                    <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
                       {project.description}
                     </p>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.technologies.map((tech, techIndex) => (
-                        <Badge key={techIndex} variant="secondary" className="bg-primary/10 text-primary text-xs">
+                        <Badge key={techIndex} variant="secondary" className="bg-primary/10 text-primary dark:bg-primary/20 text-xs">
                           {tech}
                         </Badge>
                       ))}

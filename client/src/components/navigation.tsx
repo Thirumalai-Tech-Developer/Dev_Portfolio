@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -45,7 +46,7 @@ export default function Navigation() {
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      isScrolled ? "bg-white shadow-sm" : "bg-white/95 backdrop-blur-sm"
+      isScrolled ? "bg-background dark:bg-background shadow-sm border-b border-border" : "bg-background/95 dark:bg-background/95 backdrop-blur-sm"
     }`}>
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
@@ -58,29 +59,33 @@ export default function Navigation() {
           
           {/* Desktop Navigation */}
           {!isMobile && (
-            <div className="flex space-x-8">
+            <div className="flex items-center space-x-8">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-text-primary hover:text-primary transition-colors duration-200"
+                  className="text-foreground hover:text-primary transition-colors duration-200"
                 >
                   {item.label}
                 </button>
               ))}
+              <ThemeToggle />
             </div>
           )}
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button and Theme Toggle */}
           {isMobile && (
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-text-primary hover:text-primary"
-            >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
+            <div className="flex items-center space-x-2">
+              <ThemeToggle />
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="text-foreground hover:text-primary"
+              >
+                {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </Button>
+            </div>
           )}
         </div>
 
@@ -92,7 +97,7 @@ export default function Navigation() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-text-primary hover:text-primary transition-colors duration-200 py-2 text-left"
+                  className="text-foreground hover:text-primary transition-colors duration-200 py-2 text-left"
                 >
                   {item.label}
                 </button>
