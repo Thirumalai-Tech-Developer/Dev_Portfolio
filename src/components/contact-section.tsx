@@ -107,7 +107,7 @@ export default function ContactSection() {
                 <h4 className="font-semibold mb-4 text-secondary-foreground">Find me on</h4>
                 <div className="flex space-x-4">
                   <a 
-                    href="https://linkedin.com/in/thirumalai-g" 
+                    href="https://www.linkedin.com/in/thirumalai-g007" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary transition-colors duration-200"
