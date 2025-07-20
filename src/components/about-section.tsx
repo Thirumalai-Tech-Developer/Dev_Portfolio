@@ -54,7 +54,7 @@ export default function AboutSection() {
               
               <div className="flex space-x-4">
                 <a 
-                  href="https://linkedin.com/in/thirumalai-g" 
+                  href="https://www.linkedin.com/in/thirumalai-g007" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="bg-primary text-primary-foreground p-3 rounded-lg hover:bg-primary/90 transition-colors duration-200"

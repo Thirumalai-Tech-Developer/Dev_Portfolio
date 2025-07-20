@@ -10,7 +10,7 @@ export default function Footer() {
           </p>
           <div className="mt-4 flex justify-center space-x-6">
             <a 
-              href="https://linkedin.com/in/thirumalai-g" 
+              href="https://www.linkedin.com/in/thirumalai-g007" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-secondary-foreground/60 hover:text-secondary-foreground transition-colors duration-200"
