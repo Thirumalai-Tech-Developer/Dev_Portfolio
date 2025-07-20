@@ -29,7 +29,7 @@ export default function SkillsSection() {
       icon: Users,
       iconBg: "bg-orange-500",
       color: "bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800",
-      skills: ["Git", "GitHub", "Responsive Design", "SEO Basics"]
+      skills: ["AI Tools", "Git & GitHub", "Responsive Design", "SEO Basics"]
     }
   ];
 

@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Typing from "@/components/ui/Typing";
 import { Code, Mail } from "lucide-react";
 
 export default function HeroSection() {
@@ -20,16 +21,15 @@ export default function HeroSection() {
     <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/5 to-accent/5 dark:from-primary/10 dark:to-accent/10 pt-20">
       <div className="container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto">
-          {/* Professional Avatar */}
-          <div className="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg">
-            <span className="text-white text-4xl font-bold">TG</span>
-          </div>
           
           <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
-            Thirumalai G
+            <Typing
+              text="Thirumalai G"
+              speed={100}
+            />
           </h1>
           <h2 className="text-2xl md:text-3xl text-primary font-medium mb-6">
-            Full Stack Web Developer
+            Java Full Stack Web Developer
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
             Full-stack developer with expertise in both modern frontend technologies (React, Tailwind CSS) and Java backend development (Spring Boot, SQL). 
