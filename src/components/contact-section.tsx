@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser';
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -17,7 +18,7 @@ export default function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!formData.name || !formData.email || !formData.message) {
       toast({
         title: "Error",
@@ -27,14 +28,30 @@ export default function ContactSection() {
       return;
     }
 
-    // Simulate form submission
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for your message. I'll get back to you soon!",
-    });
+    const templateParams = {
+      from_name: formData.name,
+      reply_to: formData.email,
+      message: formData.message,
+    };
 
-    setFormData({ name: "", email: "", message: "" });
+    emailjs
+      .send("service_rp58y17","template_qpjd0ep", templateParams, 'kwkLCLo2I3x6SItHL')
+      .then(() => {
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for your message. I'll get back to you soon!",
+        });
+        setFormData({ name: "", email: "", message: "" });
+      })
+      .catch(() => {
+        toast({
+          title: "Error",
+          description: "Failed to send message. Please try again later.",
+          variant: "destructive"
+        });
+      });
   };
+
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({
@@ -119,7 +136,7 @@ export default function ContactSection() {
                     value={formData.name}
                     onChange={handleInputChange}
                     placeholder="Your Name"
-                    className="bg-secondary-foreground/10 border-secondary-foreground/20 text-secondary-foreground placeholder:text-secondary-foreground/60"
+                    className="bg-secondary-foreground/10 border-secondary-foreground/20 text-black placeholder:text-secondary-foreground/60"
                   />
                   <Input
                     name="email"
@@ -127,7 +144,7 @@ export default function ContactSection() {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="Your Email"
-                    className="bg-secondary-foreground/10 border-secondary-foreground/20 text-secondary-foreground placeholder:text-secondary-foreground/60"
+                    className="bg-secondary-foreground/10 border-secondary-foreground/20 text-black placeholder:text-secondary-foreground/60"
                   />
                   <Textarea
                     name="message"
@@ -135,7 +152,7 @@ export default function ContactSection() {
                     onChange={handleInputChange}
                     rows={5}
                     placeholder="Your Message"
-                    className="bg-secondary-foreground/10 border-secondary-foreground/20 text-secondary-foreground placeholder:text-secondary-foreground/60 resize-none"
+                    className="bg-secondary-foreground/10 border-secondary-foreground/20 text-black placeholder:text-secondary-foreground/60 resize-none"
                   />
                   <Button 
                     type="submit" 
