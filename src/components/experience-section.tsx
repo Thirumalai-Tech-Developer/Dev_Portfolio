@@ -12,6 +12,7 @@ export default function ExperienceSection() {
             <div className="absolute left-4 md:left-8 top-0 bottom-0 w-0.5 bg-primary/20"></div>
             
             <div className="relative">
+              {/* Vcodez Internship */}
               <div className="flex items-start mb-8">
                 <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center mr-6 mt-1 relative z-10">
                   <Briefcase className="text-white w-4 h-4" />
@@ -20,7 +21,7 @@ export default function ExperienceSection() {
                   <CardContent className="p-6">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                       <div>
-                        <h3 className="text-xl font-semibold text-foreground">Technical Intern</h3>
+                        <h3 className="text-xl font-semibold text-foreground">AI/ML Developer Intern</h3>
                         <p className="text-primary font-medium">Vcodez</p>
                       </div>
                       <div className="text-muted-foreground text-sm mt-2 md:mt-0 flex items-center">
@@ -33,21 +34,22 @@ export default function ExperienceSection() {
                     <ul className="text-foreground space-y-2">
                       <li className="flex items-start">
                         <CheckCircle className="text-accent w-4 h-4 mt-1 mr-3 flex-shrink-0" />
-                        Contributed to 5+ client-facing web applications using modern web technologies
+                        Developed and deployed <b>AI/ML models</b> for real-world applications
                       </li>
                       <li className="flex items-start">
                         <CheckCircle className="text-accent w-4 h-4 mt-1 mr-3 flex-shrink-0" />
-                        Built reusable React Components and optimized frontend performance
+                        Automated workflows to optimize client business processes
                       </li>
                       <li className="flex items-start">
                         <CheckCircle className="text-accent w-4 h-4 mt-1 mr-3 flex-shrink-0" />
-                        Collaborated with teams to deliver high-quality user experiences
+                        Collaborated with cross-functional teams to deliver data-driven solutions
                       </li>
                     </ul>
                   </CardContent>
                 </Card>
               </div>
               
+              {/* Freelance Work */}
               <div className="flex items-start mb-8">
                 <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center mr-6 mt-1 relative z-10">
                   <Briefcase className="text-white w-4 h-4" />
@@ -56,7 +58,7 @@ export default function ExperienceSection() {
                   <CardContent className="p-6">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                       <div>
-                        <h3 className="text-xl font-semibold text-foreground">Freelance Developer</h3>
+                        <h3 className="text-xl font-semibold text-foreground">Web Developer & AI/ML Automation Freelancer</h3>
                         <p className="text-primary font-medium">Remote</p>
                       </div>
                       <div className="text-muted-foreground text-sm mt-2 md:mt-0 flex items-center">
@@ -67,15 +69,15 @@ export default function ExperienceSection() {
                     <ul className="text-foreground space-y-2">
                       <li className="flex items-start">
                         <CheckCircle className="text-accent w-4 h-4 mt-1 mr-3 flex-shrink-0" />
-                        Designed and delivered 4 custom web applications using React, HTML/CSS, and Tailwind
+                        Built and delivered <b>custom web applications</b> using React, Tailwind, and modern frontend stacks
                       </li>
                       <li className="flex items-start">
                         <CheckCircle className="text-accent w-4 h-4 mt-1 mr-3 flex-shrink-0" />
-                        Integrated public APIs and improved client UX through visual enhancements
+                        Implemented <b>AI/ML-powered automation systems</b> to streamline client workflows
                       </li>
                       <li className="flex items-start">
                         <CheckCircle className="text-accent w-4 h-4 mt-1 mr-3 flex-shrink-0" />
-                        Delivered projects on time with focus on responsive design and performance
+                        Delivered responsive and high-performance solutions on time for multiple clients
                       </li>
                     </ul>
                   </CardContent>

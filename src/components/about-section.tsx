@@ -13,16 +13,17 @@ export default function AboutSection() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-lg text-foreground leading-relaxed mb-6">
-                I'm a full-stack developer with expertise spanning modern frontend technologies (React, Tailwind CSS) 
-                and Java backend development (Spring Boot, SQL). My experience includes building production-ready 
-                web applications, mobile applications, and scalable backend systems with clean architecture.
+                I'm a full-stack developer with expertise in <b>modern frontend technologies (React, Tailwind CSS)</b> 
+                and <b>Java backend development (Spring Boot, SQL)</b>. In addition, I specialize in 
+                <b>AI/ML</b> and <b>workflow automation</b> to build intelligent, scalable, and production-ready 
+                solutions that save time and increase efficiency.
               </p>
               <p className="text-lg text-foreground leading-relaxed mb-6">
-                Currently completing my B.Tech in Engineering with a CGPA of 8.1, I combine academic knowledge 
-                with practical freelance and internship experience. I'm a fast learner, team collaborator, and 
-                passionate about delivering high-quality solutions across the full technology stack.
+                Currently completing my B.Tech in Engineering with a <b>CGPA of 8.1</b>, I combine academic knowledge 
+                with practical <b>freelance and internship experience</b>. I'm a fast learner, strong team collaborator, 
+                and passionate about delivering high-quality applications, from <b>intuitive web and mobile frontends</b> 
+                to <b>optimized backends</b> and <b>AI-driven automation systems</b>.
               </p>
-              
               <div className="flex flex-wrap gap-3">
                 <Badge variant="secondary" className="bg-primary/10 text-primary dark:bg-primary/20">Problem Solver</Badge>
                 <Badge variant="secondary" className="bg-primary/10 text-primary dark:bg-primary/20">Team Player</Badge>

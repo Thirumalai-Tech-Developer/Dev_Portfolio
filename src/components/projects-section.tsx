@@ -64,6 +64,37 @@ export default function ProjectsSection() {
       gradient: "from-orange-400 via-red-400 to-pink-400",
       github: "https://github.com/Thirumalai-Tech-Developer/Dev_Portfolio",
       demo: ""
+    },
+    // --- AI/ML Projects from Resume ---
+    {
+      title: "Sign Language Classification",
+      subtitle: "Graph Neural Network",
+      description: "Built a system using Graph Neural Networks (GNN) to classify and identify sign language words or letters, improving accessibility and communication.",
+      technologies: ["Python", "PyTorch", "GNN"],
+      icon: Database,
+      gradient: "from-purple-400 via-pink-400 to-red-400",
+      github: "https://github.com/Thirumalai-Tech-Developer", // update if repo exists
+      demo: ""
+    },
+    {
+      title: "Voice-to-Voice AI Agent",
+      subtitle: "LLM Speech Assistant",
+      description: "Developed an AI agent that recognizes speech, converts it into text, processes it with an LLM, and returns the response as speech in real-time.",
+      technologies: ["LangChain", "LLM", "Speech Recognition"],
+      icon: PlayCircle,
+      gradient: "from-green-400 via-blue-400 to-purple-400",
+      github: "https://github.com/Thirumalai-Tech-Developer", // update if repo exists
+      demo: ""
+    },
+    {
+      title: "YouTube Video AI Agent",
+      subtitle: "Automated Content Generator",
+      description: "AI-powered pipeline that generates stories from keywords, creates Stable Diffusion images, adds AI narration, and produces complete YouTube videos automatically.",
+      technologies: ["Python", "Stable Diffusion", "LangChain"],
+      icon: PlayCircle,
+      gradient: "from-yellow-400 via-orange-400 to-pink-400",
+      github: "https://github.com/Thirumalai-Tech-Developer", // update if repo exists
+      demo: ""
     }
   ];
 

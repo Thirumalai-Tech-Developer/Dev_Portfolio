@@ -8,7 +8,7 @@ export default function SkillsSection() {
       icon: Code,
       iconBg: "bg-blue-500",
       color: "bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800",
-      skills: ["JavaScript", "Java", "HTML", "CSS"]
+      skills: ["JavaScript", "Java", "Python", "HTML", "CSS"]
     },
     {
       title: "Frontend Frameworks",
@@ -22,14 +22,30 @@ export default function SkillsSection() {
       icon: Layers,
       iconBg: "bg-purple-500",
       color: "bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800",
-      skills: ["Node.js", "Express", "Spring Boot", "SQL"]
+      skills: ["Node.js", "Express", "Spring Boot", "SQL", "Django"]
     },
     {
-      title: "Tools & Specializations",
+      title: "AI/ML & Tools",
       icon: Users,
       iconBg: "bg-orange-500",
       color: "bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800",
-      skills: ["AI Tools", "Git & GitHub", "Responsive Design", "SEO Basics"]
+      skills: [
+        "PyTorch",
+        "LangChain",
+        "LangGraph",
+        "AI Agents",
+        "Vision Language Models (VLM)",
+        "LLM Applications",
+        "Workflow Automation (n8n)",
+        "ComfyUI"
+      ]
+    },
+    {
+      title: "Other Specializations",
+      icon: Users,
+      iconBg: "bg-pink-500",
+      color: "bg-pink-50 dark:bg-pink-900/20 border border-pink-200 dark:border-pink-800",
+      skills: ["Git & GitHub", "Responsive Design", "SEO Basics", "WebApp Development"]
     }
   ];
 
@@ -44,7 +60,7 @@ export default function SkillsSection() {
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">Skills & Technologies</h2>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
             {skillCategories.map((category, index) => {
               const IconComponent = category.icon;
               return (

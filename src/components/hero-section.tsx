@@ -29,12 +29,13 @@ export default function HeroSection() {
             />
           </h1>
           <h2 className="text-2xl md:text-3xl text-primary font-medium mb-6">
-            Java Full Stack Web Developer
+            Java Full-Stack & AI/ML Developer
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
-            Full-stack developer with expertise in both modern frontend technologies (React, Tailwind CSS) and Java backend development (Spring Boot, SQL). 
-            Built and delivered production-ready web applications with modern UI, reusable components, API integration, and scalable backend systems. 
-            Passionate about clean, maintainable code and exceptional user experiences.
+            A results-driven developer blending <b>modern full-stack development</b> with 
+            <b> AI/ML innovation</b>. Experienced in building <b>production-ready web applications</b>, 
+            <b> intelligent automation systems</b>, and <b>scalable backend architectures</b>. 
+            Passionate about turning complex ideas into clean, efficient, and impactful digital solutions.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
