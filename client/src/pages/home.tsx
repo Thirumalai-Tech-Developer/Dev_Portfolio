@@ -220,7 +220,7 @@ export default function Home() {
   const stats = [
     { label: "Projects Completed", value: 9, suffix: "+" },
     { label: "Technologies Mastered", value: 8, suffix: "+" },
-    { label: "Years Experience", value: 1, suffix: "+" }
+    { label: "Total Experience", value: 1, suffix: "+" }
   ];
 
   const [counters, setCounters] = useState(stats.map(() => 0));
