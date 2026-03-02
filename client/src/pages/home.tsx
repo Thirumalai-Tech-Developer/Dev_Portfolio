@@ -31,6 +31,7 @@ import {
   Video,
   Mic,
   LucideCloudy,
+  Construction,
   Network,
   Hand,
   Menu,
@@ -136,6 +137,14 @@ export default function Home() {
 
   const projects = [
     {
+      title: "ABC Construction",
+      description: "Developed a real-life construction Website using React and TypeScript",
+      icon: <Construction className="w-8 h-8" />,
+      tags: ["React", "TS", "AI"],
+      gradient: "from-yellow-500/20 to-white-500/20",
+      link: "https://github.com/Thirumalai-Tech-Developer/END-END_AI-ML_Cloud"
+    },
+    {
       title: "End-To-End AI/ML Cloud platform",
       description: "Developed a complete cloud-based automation system for AI/ML workflows.",
       icon: <LucideCloudy className="w-8 h-8" />,
@@ -170,9 +179,28 @@ export default function Home() {
 
   const experiences = [
     {
+      title: "Technical Engineer",
+      company: "China Shaanxi Overseas Engineering & Construction LLC",
+      location: "Dubai, UAE",
+      period: "Feb 2026 – Present",
+      achievements: [
+        "Resolved on-site technical issues by identifying root causes and implementing effective solutions."
+      ]
+    },
+    {
+      title: "Junior AI Developer",
+      company: "ZFusionAI",
+      location: "Kallakurichi, India",
+      period: "Sep 2025 – Feb 2026",
+      achievements: [
+        "Built LLM-powered chatbot using LangChain with RAG Architecture",
+        "Integrated ChromaDB for semantic search and contextual retrieval"
+      ]
+    },
+    {
       title: "AI/ML Developer",
       company: "Vcodez",
-      location: "Chennai",
+      location: "Chennai, India",
       period: "Mar 2025 – Jun 2025",
       achievements: [
         "Worked on 5+ AI/ML projects including LLM-based and vision-based tools",
@@ -187,7 +215,7 @@ export default function Home() {
       institution: "Muthayammal College of Engineering",
       location: "Rasipuram",
       period: "Aug 2021 – May 2025",
-      score: "CGPA: 8.1 (Approx)"
+      score: "CGPA: 7.86"
     },
     {
       degree: "HSC",
@@ -207,9 +235,12 @@ export default function Home() {
 
   const skills = [
     { name: "Python", level: 100, category: "Language" },
+    { name: "JavaScript", level: 80, category: "Language" },
     { name: "PyTorch", level: 80, category: "Framework" },
     { name: "LangChain", level: 85, category: "Framework" },
     { name: "LangGraph", level: 80, category: "Framework" },
+    { name: "React", level: 90, category: "Framework" },
+    { name: "Tailwind CSS", level: 90, category: "Framework" },
     { name: "LLM", level: 100, category: "Domain" },
     { name: "VLM", level: 90, category: "Domain" },
     { name: "AI Agent", level: 95, category: "Domain" },
@@ -218,9 +249,9 @@ export default function Home() {
   ];
 
   const stats = [
-    { label: "Projects Completed", value: 9, suffix: "+" },
-    { label: "Technologies Mastered", value: 8, suffix: "+" },
-    { label: "Total Experience", value: 1, suffix: "+" }
+    { label: "Projects Completed", value: 10, suffix: "+" },
+    { label: "Deployed Projects", value: 2, suffix: "+" },
+    { label: "Self Experience", value: 1, suffix: "+" }
   ];
 
   const [counters, setCounters] = useState(stats.map(() => 0));
@@ -769,10 +800,10 @@ export default function Home() {
                         name="name"
                         render={() => (
                           <FormItem>
-                            <FormLabel>Company Name</FormLabel>
+                            <FormLabel>Name</FormLabel>
                             <FormControl>
                               <Input
-                                placeholder="Company name"
+                                placeholder="Your Name"
                                 value={formData.name}
                                 onChange={(e) =>
                                   setFormData({ ...formData, name: e.target.value })
@@ -788,7 +819,7 @@ export default function Home() {
                         name="message"
                         render={() => (
                           <FormItem>
-                            <FormLabel>What impressed you?</FormLabel>
+                            <FormLabel>Message</FormLabel>
                             <FormControl>
                               <Textarea
                                 placeholder="Your Answer..."
@@ -846,7 +877,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Location</p>
-                    <p className="font-medium">Kallakurichi, Tamil Nadu</p>
+                    <p className="font-medium">Dubai, UAE</p>
                   </div>
                 </CardContent>
               </Card>
