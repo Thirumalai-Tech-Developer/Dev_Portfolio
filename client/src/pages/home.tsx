@@ -72,7 +72,7 @@ export default function Home() {
     message: ""
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
 
     if (!formData.name || !formData.message) {
@@ -250,7 +250,7 @@ export default function Home() {
 
   const stats = [
     { label: "Projects Completed", value: 10, suffix: "+" },
-    { label: "Deployed Projects", value: 2, suffix: "+" },
+    { label: "Deployed Projects", value: 3, suffix: "+" },
     { label: "Self Experience", value: 1, suffix: "+" }
   ];
 
