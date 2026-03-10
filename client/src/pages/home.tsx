@@ -137,74 +137,51 @@ export default function Home() {
 
   const projects = [
     {
-      title: "ABC Construction",
-      description: "Developed a real-life construction Website using React and TypeScript",
+      title: "ABC Contracting LLC",
+      description: "Developed and deployed a high-quality company website with modern technologies and SEO optimization.",
       icon: <Construction className="w-8 h-8" />,
-      tags: ["React", "TS", "AI"],
-      gradient: "from-yellow-500/20 to-white-500/20",
-      link: "https://github.com/Thirumalai-Tech-Developer/END-END_AI-ML_Cloud"
+      tags: ["React", "TypeScript", "SEO", "Tailwind"],
+      gradient: "from-yellow-500/20 to-orange-500/20",
+      link: "https://abccont.com"
     },
     {
-      title: "End-To-End AI/ML Cloud platform",
-      description: "Developed a complete cloud-based automation system for AI/ML workflows.",
+      title: "ZFusionAI Website",
+      description: "Rebuilt and deployed the official AI company website with performance improvements and faster loading speeds.",
       icon: <LucideCloudy className="w-8 h-8" />,
-      tags: ["PyTorch", "LLM", "Machine Learning", "Cloud"],
+      tags: ["React", "AI", "SEO", "Hosting"],
       gradient: "from-purple-500/20 to-pink-500/20",
-      link: "https://github.com/Thirumalai-Tech-Developer/END-END_AI-ML_Cloud"
+      link: "https://zfusionai.info"
     },
     {
-      title: "Sign Language Classification",
-      description: "Graph neural network to identify sign language words and letters with high accuracy.",
-      icon: <Hand className="w-8 h-8" />,
-      tags: ["PyTorch", "GNN", "Computer Vision"],
+      title: "Upstand Technical Service LLC",
+      description: "Developed and deployed a professional company website within 2 days using modern technologies.",
+      icon: <Network className="w-8 h-8" />,
+      tags: ["React", "Tailwind", "Deployment"],
       gradient: "from-blue-500/20 to-purple-500/20",
-      link: "https://github.com/Thirumalai-Tech-Developer/Sign_Language"
-    },
-    // {
-    //   title: "Voice-To-Voice AI Agent",
-    //   description: "The system recognizes speech, converts to text, sends to LLM, and converts response back to speech.",
-    //   icon: <Mic className="w-8 h-8" />,
-    //   tags: ["LLM", "Speech Recognition", "AI Agent"],
-    //   gradient: "from-pink-500/20 to-red-500/20"
-    // },
-    {
-      title: "YouTube Video AI Agent",
-      description: "Takes keywords, generates a story, creates image prompts for Stable Diffusion, converts to speech, and combines into a complete video.",
-      icon: <Video className="w-8 h-8" />,
-      tags: ["Stable Diffusion", "LLM", "Automation"],
-      gradient: "from-red-500/20 to-orange-500/20",
-      link: "https://github.com/Thirumalai-Tech-Developer/Youtube-Video-AI-Agents"
+      link: "https://upstanduae.com"
     }
   ];
 
   const experiences = [
     {
-      title: "Technical Engineer",
-      company: "China Shaanxi Overseas Engineering & Construction LLC",
-      location: "Dubai, UAE",
-      period: "Feb 2026 – Present",
-      achievements: [
-        "Resolved on-site technical issues by identifying root causes and implementing effective solutions."
-      ]
-    },
-    {
-      title: "Junior AI Developer",
+      title: "Web Developer",
       company: "ZFusionAI",
-      location: "Kallakurichi, India",
+      location: "India",
       period: "Sep 2025 – Feb 2026",
       achievements: [
-        "Built LLM-powered chatbot using LangChain with RAG Architecture",
-        "Integrated ChromaDB for semantic search and contextual retrieval"
+        "Developed and deployed the company website from scratch using modern web technologies.",
+        "Improved website performance and loading speed through optimization.",
+        "Implemented SEO strategies that improved Google search rankings."
       ]
     },
     {
-      title: "AI/ML Developer",
+      title: "Technical Intern",
       company: "Vcodez",
       location: "Chennai, India",
       period: "Mar 2025 – Jun 2025",
       achievements: [
-        "Worked on 5+ AI/ML projects including LLM-based and vision-based tools",
-        "Collaborated with clients to resolve technical issues and optimize performance of deployed models"
+        "Developed a complete client project within 3 days under tight deadlines.",
+        "Built a web-based system for video upload and backend classification."
       ]
     }
   ];
@@ -234,18 +211,19 @@ export default function Home() {
   ];
 
   const skills = [
-    { name: "Python", level: 100, category: "Language" },
-    { name: "JavaScript", level: 80, category: "Language" },
-    { name: "PyTorch", level: 80, category: "Framework" },
-    { name: "LangChain", level: 85, category: "Framework" },
-    { name: "LangGraph", level: 80, category: "Framework" },
+    { name: "HTML", level: 95, category: "Frontend" },
+    { name: "CSS", level: 90, category: "Frontend" },
+    { name: "JavaScript", level: 90, category: "Frontend" },
+    { name: "TypeScript", level: 85, category: "Frontend" },
     { name: "React", level: 90, category: "Framework" },
     { name: "Tailwind CSS", level: 90, category: "Framework" },
-    { name: "LLM", level: 100, category: "Domain" },
-    { name: "VLM", level: 90, category: "Domain" },
-    { name: "AI Agent", level: 95, category: "Domain" },
-    { name: "n8n", level: 75, category: "Tool" },
-    { name: "Comfy UI", level: 90, category: "Tool" }
+    { name: "Node.js", level: 80, category: "Backend" },
+    { name: "Django", level: 75, category: "Backend" },
+    { name: "Flask", level: 75, category: "Backend" },
+    { name: "MySQL", level: 80, category: "Database" },
+    { name: "MongoDB", level: 75, category: "Database" },
+    { name: "JWT Authentication", level: 80, category: "Security" },
+    { name: "CSRF Protection", level: 75, category: "Security" }
   ];
 
   const stats = [
@@ -451,7 +429,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <p className="text-sm font-medium tracking-wide uppercase text-muted-foreground mb-4">
-                AI/ML Developer
+                Applied AI & Full Stack Developer
               </p>
               <h1 className="text-6xl md:text-7xl font-bold leading-tight font-[family-name:var(--font-display)]">
                 <span className="text-foreground">Thirumalai</span>{" "}
@@ -465,8 +443,9 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              Building intelligent systems with <span className="text-primary font-medium">PyTorch</span>, <span className="text-primary font-medium">LangChain</span>, and cutting-edge AI technologies. 
-              Passionate about solving real-world problems through artificial intelligence.
+              Applied AI & Full Stack Developer specializing in<span className="text-primary font-medium"> LLM systems, RAG architecture,
+              and AI automation platforms. </span> Experienced in building production-ready AI agents 
+              and scalable web applications using<span className="text-primary font-medium"> Python, React, LangChain, and TailwindCSS.</span>
             </motion.p>
 
             <motion.div
@@ -579,7 +558,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 gap-6">
             {projects.map((project, index) => (
-              <a href={project.link}>
+              <a key={index} href={project.link} target="_blank" rel="noopener noreferrer">
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
@@ -775,7 +754,7 @@ export default function Home() {
               Get In Touch
             </h2>
             <p className="text-muted-foreground text-lg">
-              If you are thinking to give a opportunity!. My inbox is always open.
+              If you have an opportunity or project in mind, feel free to reach out. I'm always open to collaboration.
             </p>
           </motion.div>
 
@@ -925,7 +904,7 @@ export default function Home() {
                     <div>
                       <p className="font-semibold mb-1">Available for Opportunities</p>
                       <p className="text-sm text-muted-foreground">
-                        Open to Work as AI/ML Engineer 
+                        Open to Work as Web Developer 
                       </p>
                     </div>
                   </div>
@@ -940,7 +919,7 @@ export default function Home() {
       <footer className="py-8 px-6 border-t border-border">
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-muted-foreground">
-            © 2025 Thirumalai G. Built with React, Python, and lots of{" "}
+            © 2026 Thirumalai G. Built with React, Python, and lots of{" "}
             <span className="text-primary">AI magic</span> ✨
           </p>
         </div>
