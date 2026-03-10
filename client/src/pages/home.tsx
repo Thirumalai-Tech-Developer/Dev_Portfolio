@@ -108,7 +108,18 @@ export default function Home() {
   };
 
   const scrollToSection = (ref: React.RefObject<HTMLElement>) => {
-    ref.current?.scrollIntoView({ behavior: "smooth" });
+    if (!ref.current) return;
+
+    const navbarHeight = 80;
+
+    const elementPosition = ref.current.getBoundingClientRect().top + window.scrollY;
+
+    const offsetPosition = elementPosition - navbarHeight;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth",
+    });
   };
 
   const contactMutation = useMutation({
@@ -333,8 +344,8 @@ export default function Home() {
               <div className="px-6 py-4 space-y-4">
                 <button 
                   onClick={() => {
-                    scrollToSection(projectsRef);
                     setMobileMenuOpen(false);
+                    setTimeout(() => scrollToSection(projectsRef), 100);
                   }}
                   className="block w-full text-left text-sm font-medium hover-elevate transition-colors px-3 py-2 rounded-md"
                   data-testid="nav-projects-mobile"
@@ -343,8 +354,8 @@ export default function Home() {
                 </button>
                 <button 
                   onClick={() => {
-                    scrollToSection(experienceRef);
                     setMobileMenuOpen(false);
+                    setTimeout(() => scrollToSection(experienceRef), 100);
                   }}
                   className="block w-full text-left text-sm font-medium hover-elevate transition-colors px-3 py-2 rounded-md"
                   data-testid="nav-experience-mobile"
@@ -353,8 +364,8 @@ export default function Home() {
                 </button>
                 <button 
                   onClick={() => {
-                    scrollToSection(skillsRef);
                     setMobileMenuOpen(false);
+                    setTimeout(() => scrollToSection(skillsRef), 100);
                   }}
                   className="block w-full text-left text-sm font-medium hover-elevate transition-colors px-3 py-2 rounded-md"
                   data-testid="nav-skills-mobile"
@@ -363,8 +374,8 @@ export default function Home() {
                 </button>
                 <button 
                   onClick={() => {
-                    scrollToSection(contactRef);
                     setMobileMenuOpen(false);
+                    setTimeout(() => scrollToSection(contactRef), 100);
                   }}
                   className="block w-full text-left text-sm font-medium hover-elevate transition-colors px-3 py-2 rounded-md"
                   data-testid="nav-contact-mobile"
