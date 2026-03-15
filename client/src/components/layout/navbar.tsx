@@ -43,22 +43,17 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
 
-  const projectsRef = useRef(null);
-  const experienceRef = useRef(null);
-  const skillsRef = useRef(null);
-  const contactRef = useRef(null);
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
 
-  const scrollToSection = (ref: React.RefObject<HTMLElement>) => {
-    if (!ref.current) return;
+    if (!element) return;
 
     const navbarHeight = 80;
 
-    const elementPosition = ref.current.getBoundingClientRect().top + window.scrollY;
-
-    const offsetPosition = elementPosition - navbarHeight;
+    const elementPosition = element.offsetTop - navbarHeight;
 
     window.scrollTo({
-      top: offsetPosition,
+      top: elementPosition,
       behavior: "smooth",
     });
   };
@@ -83,28 +78,28 @@ export default function Navbar() {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
               <button 
-                onClick={() => scrollToSection(projectsRef)}
-                className="text-sm font-medium hover-elevate transition-colors px-3 py-2 rounded-md"
-                data-testid="nav-projects"
-              >
-                Projects
-              </button>
-              <button 
-                onClick={() => scrollToSection(experienceRef)}
-                className="text-sm font-medium hover-elevate transition-colors px-3 py-2 rounded-md"
-                data-testid="nav-experience"
-              >
-                Experience
-              </button>
-              <button 
-                onClick={() => scrollToSection(skillsRef)}
+                onClick={() => scrollToSection("skills")}
                 className="text-sm font-medium hover-elevate transition-colors px-3 py-2 rounded-md"
                 data-testid="nav-skills"
               >
                 Skills
               </button>
               <button 
-                onClick={() => scrollToSection(contactRef)}
+                onClick={() => scrollToSection("projects")}
+                className="text-sm font-medium hover-elevate transition-colors px-3 py-2 rounded-md"
+                data-testid="nav-projects"
+              >
+                Projects
+              </button>
+              <button 
+                onClick={() => scrollToSection("experience")}
+                className="text-sm font-medium hover-elevate transition-colors px-3 py-2 rounded-md"
+                data-testid="nav-experience"
+              >
+                Experience
+              </button>
+              <button 
+                onClick={() => scrollToSection("contact")}
                 className="text-sm font-medium hover-elevate transition-colors px-3 py-2 rounded-md"
                 data-testid="nav-contact"
               >
@@ -145,27 +140,7 @@ export default function Navbar() {
                 <button 
                   onClick={() => {
                     setMobileMenuOpen(false);
-                    setTimeout(() => scrollToSection(projectsRef), 100);
-                  }}
-                  className="block w-full text-left text-sm font-medium hover-elevate transition-colors px-3 py-2 rounded-md"
-                  data-testid="nav-projects-mobile"
-                >
-                  Projects
-                </button>
-                <button 
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    setTimeout(() => scrollToSection(experienceRef), 100);
-                  }}
-                  className="block w-full text-left text-sm font-medium hover-elevate transition-colors px-3 py-2 rounded-md"
-                  data-testid="nav-experience-mobile"
-                >
-                  Experience
-                </button>
-                <button 
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    setTimeout(() => scrollToSection(skillsRef), 100);
+                    setTimeout(() => scrollToSection("skills"), 100);
                   }}
                   className="block w-full text-left text-sm font-medium hover-elevate transition-colors px-3 py-2 rounded-md"
                   data-testid="nav-skills-mobile"
@@ -175,7 +150,27 @@ export default function Navbar() {
                 <button 
                   onClick={() => {
                     setMobileMenuOpen(false);
-                    setTimeout(() => scrollToSection(contactRef), 100);
+                    setTimeout(() => scrollToSection("projects"), 100);
+                  }}
+                  className="block w-full text-left text-sm font-medium hover-elevate transition-colors px-3 py-2 rounded-md"
+                  data-testid="nav-projects-mobile"
+                >
+                  Projects
+                </button>
+                <button 
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    setTimeout(() => scrollToSection("experience"), 100);
+                  }}
+                  className="block w-full text-left text-sm font-medium hover-elevate transition-colors px-3 py-2 rounded-md"
+                  data-testid="nav-experience-mobile"
+                >
+                  Experience
+                </button>
+                <button 
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    setTimeout(() => scrollToSection("contact"), 100);
                   }}
                   className="block w-full text-left text-sm font-medium hover-elevate transition-colors px-3 py-2 rounded-md"
                   data-testid="nav-contact-mobile"

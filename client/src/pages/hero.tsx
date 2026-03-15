@@ -35,34 +35,44 @@ export default function Hero() {
   };
 
   const text = "Thirumalai G";
-  const [index, setIndex] = useState(0);
-  const [forward, setForward] = useState(true);
+
+  const [typedText, setTypedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => {
-        if (forward) {
-          if (prev === text.length) {
-            setTimeout(() => {
-              setForward(false);
-            }, 1000);
-            return prev;
-          }
-          return prev + 1;
-        } else {
-          if (prev === 0) {
-            setForward(true);
-            return prev + 1;
-          }
-          return prev - 1;
-        }
-      });
-    }, 120);
 
-    return () => clearInterval(interval);
-  }, [forward, text]);
+    let timeout: NodeJS.Timeout;
 
-  const typedText = text.substring(0, index);
+    if (!isDeleting && typedText.length < text.length) {
+
+      timeout = setTimeout(() => {
+        setTypedText(text.slice(0, typedText.length + 1));
+      }, 140);
+
+    } 
+    else if (!isDeleting && typedText.length === text.length) {
+
+      timeout = setTimeout(() => {
+        setIsDeleting(true);
+      }, 5000);
+
+    } 
+    else if (isDeleting && typedText.length > 0) {
+
+      timeout = setTimeout(() => {
+        setTypedText(text.slice(0, typedText.length - 1));
+      }, 120);
+
+    } 
+    else if (isDeleting && typedText.length === 0) {
+
+      setIsDeleting(false);
+
+    }
+
+    return () => clearTimeout(timeout);
+
+  }, [typedText, isDeleting]);
 
 
   const stats = [
@@ -143,6 +153,7 @@ export default function Hero() {
               <h1 className="text-6xl md:text-7xl font-bold leading-tight font-[family-name:var(--font-display)]">
                 <span className="text-foreground">{typedText.split(" ")[0]}</span>{" "}
                 <span className="text-primary">{typedText.split(" ")[1]}</span>
+                <span className="animate-pulse">|</span>
               </h1>
             </motion.div>
 
