@@ -207,7 +207,11 @@ export default function Contact() {
                     rel="noopener noreferrer"
                     data-testid="link-linkedin"
                     >
-                    <Button variant="outline" size="icon" className="hover-elevate">
+                    <Button
+                        variant="outline"
+                        size="icon"
+                        className="hover-elevate text-muted-foreground hover:text-[#0A66C2] transition-colors"
+                        >
                         <Linkedin className="w-5 h-5" />
                     </Button>
                     </a>
@@ -217,7 +221,11 @@ export default function Contact() {
                     rel="noopener noreferrer"
                     data-testid="link-github"
                     >
-                    <Button variant="outline" size="icon" className="hover-elevate">
+                    <Button
+                        variant="outline"
+                        size="icon"
+                        className="hover-elevate text-muted-foreground hover:text-white transition-colors"
+                        >
                         <Github className="w-5 h-5" />
                     </Button>
                     </a>
@@ -227,7 +235,11 @@ export default function Contact() {
                     rel="noopener noreferrer"
                     data-testid="link-huggingface"
                     >
-                    <Button variant="outline" size="icon" className="hover-elevate">
+                    <Button
+                        variant="outline"
+                        size="icon"
+                        className="hover-elevate text-muted-foreground hover:text-[#FFD21E] transition-colors"
+                        >
                         <SiHuggingface className="w-5 h-5" />
                     </Button>
                     </a>
