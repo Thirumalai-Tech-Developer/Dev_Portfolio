@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import hljs from "highlight.js";
 import "highlight.js/styles/github-dark.css";
-import Kaido from "./Kaido.webp"
+import { marked } from "marked";
+import Kaido from "./Kaido.webp";
 
 type Message = {
   role: "user" | "bot";
@@ -37,9 +38,11 @@ export default function KidoAI() {
 
       const data: { answer?: string } = await res.json();
 
+      const formatted = marked.parse(data.answer || "No response");
+
       const botMsg: Message = {
         role: "bot",
-        text: data.answer || "No response",
+        text: formatted,
       };
 
       setMessages((prev) => [...prev, botMsg]);
@@ -58,25 +61,24 @@ export default function KidoAI() {
       chatRef.current.scrollTop = chatRef.current.scrollHeight;
     }
 
-    document.querySelectorAll("pre code").forEach((block) => {
-      hljs.highlightElement(block as HTMLElement);
-    });
+    setTimeout(() => {
+      hljs.highlightAll();
+    }, 0);
   }, [messages]);
 
   return (
     <>
-      {/* Floating Button */}
       <div
         onClick={() => setOpen(!open)}
         className={`fixed bottom-4 right-4 sm:bottom-6 sm:right-6 
         z-[99999] w-14 h-14 sm:w-16 sm:h-16 
         rounded-full cursor-pointer shadow-lg overflow-hidden 
         border-2 border-purple-500 transition ${
-        loading 
-            ? "animate-pulse ring-4 ring-purple-500/40" 
+          loading
+            ? "animate-pulse ring-4 ring-purple-500/40"
             : "hover:scale-110"
         }`}
-        >
+      >
         <img
           src={Kaido}
           alt="Kaido"
@@ -84,26 +86,25 @@ export default function KidoAI() {
         />
       </div>
 
-      {/* Chat Box */}
       {open && (
-        <div 
-        className="
+        <div
+          className="
         fixed z-[99999] 
-        bottom-20 right-4 left-4   /* mobile full width */
-        sm:left-auto sm:right-6 sm:w-80  /* desktop */
+        bottom-20 right-4 left-4
+        sm:left-auto sm:right-6 sm:w-80
         bg-black/95 text-white 
         rounded-2xl shadow-2xl 
         flex flex-col overflow-hidden 
         border border-purple-600
-        ">
-    
-          {/* Header */}
+        "
+        >
           <div className="p-3 font-bold border-b border-gray-700 flex items-center gap-2">
             <span className="text-purple-400">Kaido AI</span>
-            <span className="text-xs text-gray-400">⚡ powered by OpenRouter</span>
+            <span className="text-xs text-gray-400">
+              ⚡ powered by OpenRouter
+            </span>
           </div>
 
-          {/* Messages */}
           <div
             ref={chatRef}
             className="h-72 overflow-y-auto p-3 space-y-2 text-sm"
@@ -113,7 +114,7 @@ export default function KidoAI() {
                 key={i}
                 className={`p-2 rounded-lg ${
                   msg.role === "user"
-                    ? "bg-purple-600 text-right ml-auto max-w-[80%]"
+                    ? "bg-purple-600 text-right ml-auto w-fit"
                     : "bg-gray-800 max-w-[80%]"
                 }`}
               >
@@ -130,7 +131,6 @@ export default function KidoAI() {
             )}
           </div>
 
-          {/* Input */}
           <div className="flex border-t border-gray-700">
             <input
               className="flex-1 p-2 bg-black outline-none text-sm"
