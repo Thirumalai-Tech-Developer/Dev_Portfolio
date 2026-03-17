@@ -100,7 +100,7 @@ export default function KidoAI() {
           {/* Header */}
           <div className="p-3 font-bold border-b border-gray-700 flex items-center gap-2">
             <span className="text-purple-400">Kaido AI</span>
-            <span className="text-xs text-gray-400">⚡ powered by RAG</span>
+            <span className="text-xs text-gray-400">⚡ powered by OpenRouter</span>
           </div>
 
           {/* Messages */}
