@@ -17,7 +17,7 @@ export default function Hero() {
   const contactRef = useRef(null);
   
   const { scrollYProgress } = useScroll();
-  const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
+  const y = useTransform(scrollYProgress, [0, 0.2], [0, -80]);
 
   const scrollToSection = (ref: React.RefObject<HTMLElement>) => {
     if (!ref.current) return;
@@ -101,8 +101,6 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
-      {/* Hero Section */}
       <section 
         ref={heroRef}
         className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
@@ -138,7 +136,7 @@ export default function Hero() {
 
         <motion.div 
           className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10"
-          style={{ opacity }}
+          style={{ y }}
         >
           {/* Left Column */}
           <div className="space-y-8">
@@ -263,6 +261,5 @@ export default function Hero() {
           </motion.div>
         </motion.div>
       </section>
-    </div>
   );
 }

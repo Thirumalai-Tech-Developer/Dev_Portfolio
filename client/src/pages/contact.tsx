@@ -245,7 +245,6 @@ export default function Contact() {
                     </a>
                 </div>
                 </div>
-
                 <Card className="bg-gradient-to-br from-primary/10 to-purple-500/10 border-primary/20">
                 <CardContent className="pt-6">
                     <div className="flex items-start gap-3">
