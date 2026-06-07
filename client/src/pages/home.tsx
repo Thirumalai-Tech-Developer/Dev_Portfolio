@@ -5,6 +5,7 @@ import Skills from "@/pages/skills";
 import Contact from "@/pages/contact";
 import Education from "@/pages/education";
 import Projects from "@/pages/projects";
+import Blob from "@/pages/blob";
 import KidoAI from "@/components/layout/kidoAI";
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
         <Hero />
         <Skills />
         <Projects />
+        <Blob />
         <Education />
         <Contact />
         <Footer />

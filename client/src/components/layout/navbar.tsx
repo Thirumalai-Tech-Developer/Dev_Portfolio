@@ -76,7 +76,7 @@ export default function Navbar() {
             </motion.div>
             
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-8">
+            <div className="hidden lg:flex items-center gap-8">
               <button 
                 onClick={() => scrollToSection("skills")}
                 className="text-sm font-medium hover-elevate transition-colors px-3 py-2 rounded-md"
@@ -90,6 +90,13 @@ export default function Navbar() {
                 data-testid="nav-projects"
               >
                 Projects
+              </button>
+                            <button 
+                onClick={() => scrollToSection("blob")}
+                className="text-sm font-medium hover-elevate transition-colors px-3 py-2 rounded-md"
+                data-testid="nav-blob"
+              >
+                Blob
               </button>
               <button 
                 onClick={() => scrollToSection("experience")}
@@ -156,6 +163,16 @@ export default function Navbar() {
                   data-testid="nav-projects-mobile"
                 >
                   Projects
+                </button>
+                <button 
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    setTimeout(() => scrollToSection("blob"), 100);
+                  }}
+                  className="block w-full text-left text-sm font-medium hover-elevate transition-colors px-3 py-2 rounded-md"
+                  data-testid="nav-blob-mobile"
+                >
+                  Blob
                 </button>
                 <button 
                   onClick={() => {
