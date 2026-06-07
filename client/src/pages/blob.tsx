@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ExternalLink, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "wouter";
 
 const projects = [
   {
@@ -149,13 +150,14 @@ export default function Blob() {
                         <ExternalLink className="ml-2 h-4 w-4 group-hover/button:translate-x-1 transition-transform" />
                     </Button>
 
+                  <Link href={project.article}>
                     <Button
                         className="group/button"
-                        onClick={() => (window.location.href = project.article)}
                     >
                         Full Article
                         <ExternalLink className="ml-2 h-4 w-4 group-hover/button:translate-x-1 transition-transform" />
                     </Button>
+                  </Link>
                     </div>
               </div>
             </motion.div>
