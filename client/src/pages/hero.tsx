@@ -222,7 +222,7 @@ export default function Hero() {
           <div className="lg:col-span-5 relative flex items-center justify-center pt-4 sm:pt-6 lg:pt-0 w-full max-w-full overflow-hidden">
             
             {/* Ambient Floating Tech Badges (Visible on lg/xl screens) */}
-            <div className="absolute -top-3 left-0 z-20 animate-float-slow hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-2xl glass-panel border border-cyan-500/30 text-cyan-300 text-xs font-mono shadow-[0_8px_20px_rgba(6,182,212,0.2)] mt-6">
+            <div className="absolute -top-3 left-0 z-20 animate-float-slow hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-2xl glass-panel border border-cyan-500/30 text-cyan-300 text-xs font-mono shadow-[0_8px_20px_rgba(6,182,212,0.2)] mt-16">
               <SiPython className="w-4 h-4 text-cyan-400" />
               <span>Python 3.11</span>
             </div>
