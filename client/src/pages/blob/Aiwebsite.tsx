@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Brain,
@@ -20,6 +21,10 @@ import ParticleBackground from "@/components/ui/particle-background";
 import TiltCard from "@/components/ui/tilt-card";
 
 export default function Aiwebsite() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, []);
+
   const stats = [
     { title: "Development Time Saved", value: "70%" },
     { title: "Lines of Python & TS", value: "2,130+" },

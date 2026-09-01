@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowLeft,
@@ -21,6 +22,10 @@ import ParticleBackground from "@/components/ui/particle-background";
 import TiltCard from "@/components/ui/tilt-card";
 
 export default function SignLanguage() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, []);
+
   const stats = [
     { title: "Gesture Classification Accuracy", value: "85%+" },
     { title: "Annotated Video Frames", value: "10,000+" },

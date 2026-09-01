@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Terminal,
@@ -23,6 +24,10 @@ import ParticleBackground from "@/components/ui/particle-background";
 import TiltCard from "@/components/ui/tilt-card";
 
 export default function KratosAgent() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, []);
+
   const stats = [
     { title: "Indexed Prompts & Sub-Agents", value: "695+" },
     { title: "Modular Agent Skills", value: "148+" },
