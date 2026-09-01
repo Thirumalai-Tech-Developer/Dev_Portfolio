@@ -193,22 +193,25 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="grid grid-cols-1 xs:grid-cols-3 sm:grid-cols-3 gap-2.5 xs:gap-3 sm:gap-4 pt-4 sm:pt-6 border-t border-white/[0.08]"
+              className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 pt-4 sm:pt-6 border-t border-white/[0.08]"
             >
               {stats.map((stat, idx) => {
                 const Icon = stat.icon;
                 return (
                   <div 
                     key={idx} 
-                    className="p-3 sm:p-4 rounded-2xl glass-card border border-white/[0.06] hover:border-primary/30 transition-all duration-300 group flex xs:flex-col items-center xs:items-start justify-between xs:justify-start"
+                    className="p-4 sm:p-4 md:p-5 rounded-2xl glass-card border border-white/[0.08] hover:border-primary/40 transition-all duration-300 group flex flex-col justify-between"
                   >
-                    <div className="flex items-center gap-2 mb-0 xs:mb-1">
-                      <Icon className={`w-4 h-4 ${stat.color} group-hover:scale-110 transition-transform`} />
-                      <div className="text-lg xs:text-xl sm:text-2xl md:text-3xl font-bold font-[family-name:var(--font-display)] text-foreground">
-                        {counters[idx]}{stat.suffix}
+                    <div className="flex items-center gap-2.5 mb-2">
+                      <div className="w-8 h-8 rounded-lg bg-white/[0.05] border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                        <Icon className={`w-4 h-4 ${stat.color}`} />
+                      </div>
+                      <div className="text-xl sm:text-2xl md:text-3xl font-extrabold font-[family-name:var(--font-display)] text-foreground tracking-tight whitespace-nowrap">
+                        {counters[idx]}
+                        <span className="text-primary">{stat.suffix}</span>
                       </div>
                     </div>
-                    <div className="text-[11px] xs:text-xs text-muted-foreground leading-tight">
+                    <div className="text-xs text-muted-foreground font-medium pl-0.5 leading-tight">
                       {stat.label}
                     </div>
                   </div>
