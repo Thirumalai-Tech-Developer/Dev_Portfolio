@@ -9,231 +9,134 @@ interface ParticleBackgroundProps {
 
 export default function ParticleBackground({
   className = "",
-  quantity = 45,
+  quantity = 35,
   staticity = 50,
   ease = 50,
 }: ParticleBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const canvasContainerRef = useRef<HTMLDivElement>(null);
   const context = useRef<CanvasRenderingContext2D | null>(null);
   const circles = useRef<any[]>([]);
-  const mousePosition = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
   const mouse = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
   const canvasSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 });
-  const dpr = typeof window !== "undefined" ? window.devicePixelRatio || 1 : 1;
+  const animFrameId = useRef<number | null>(null);
 
   useEffect(() => {
+    // Avoid running on non-browser environments
+    if (typeof window === "undefined") return;
+
+    // Limit DPR on mobile to prevent canvas memory limits & crashes
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+
     if (canvasRef.current) {
       context.current = canvasRef.current.getContext("2d");
     }
-    initCanvas();
+
+    const resizeCanvas = () => {
+      if (canvasRef.current && context.current) {
+        // Use window innerWidth / innerHeight to keep canvas strictly viewport size (lightweight)
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        canvasSize.current.w = w;
+        canvasSize.current.h = h;
+        canvasRef.current.width = w * dpr;
+        canvasRef.current.height = h * dpr;
+        canvasRef.current.style.width = `${w}px`;
+        canvasRef.current.style.height = `${h}px`;
+        context.current.setTransform(1, 0, 0, 1, 0, 0);
+        context.current.scale(dpr, dpr);
+        
+        // Re-populate particles based on screen width
+        const count = w < 768 ? 15 : quantity;
+        circles.current = [];
+        for (let i = 0; i < count; i++) {
+          circles.current.push(createCircle(w, h));
+        }
+      }
+    };
+
+    const createCircle = (w: number, h: number) => {
+      const x = Math.floor(Math.random() * w);
+      const y = Math.floor(Math.random() * h);
+      const size = Math.floor(Math.random() * 2) + 0.8;
+      const alpha = parseFloat((Math.random() * 0.5 + 0.15).toFixed(2));
+      const dx = (Math.random() - 0.5) * 0.3;
+      const dy = (Math.random() - 0.5) * 0.3;
+      const magnetism = 0.1 + Math.random() * 3;
+      const hue = Math.random() > 0.5 ? 217 : 270;
+      return {
+        x,
+        y,
+        translateX: 0,
+        translateY: 0,
+        size,
+        alpha,
+        targetAlpha: alpha,
+        dx,
+        dy,
+        magnetism,
+        hue,
+      };
+    };
+
+    const handleMouseMove = (event: MouseEvent) => {
+      const { clientX, clientY } = event;
+      mouse.current.x = clientX - canvasSize.current.w / 2;
+      mouse.current.y = clientY - canvasSize.current.h / 2;
+    };
+
+    const animate = () => {
+      if (context.current && canvasRef.current) {
+        context.current.clearRect(0, 0, canvasSize.current.w, canvasSize.current.h);
+        
+        for (let i = 0; i < circles.current.length; i++) {
+          const circle = circles.current[i];
+          
+          circle.x += circle.dx;
+          circle.y += circle.dy;
+          circle.translateX +=
+            (mouse.current.x / (staticity / circle.magnetism) - circle.translateX) / ease;
+          circle.translateY +=
+            (mouse.current.y / (staticity / circle.magnetism) - circle.translateY) / ease;
+
+          // Wrap edges
+          if (circle.x < 0) circle.x = canvasSize.current.w;
+          if (circle.x > canvasSize.current.w) circle.x = 0;
+          if (circle.y < 0) circle.y = canvasSize.current.h;
+          if (circle.y > canvasSize.current.h) circle.y = 0;
+
+          const posX = circle.x + circle.translateX;
+          const posY = circle.y + circle.translateY;
+
+          context.current.beginPath();
+          context.current.arc(posX, posY, circle.size, 0, 2 * Math.PI);
+          context.current.fillStyle = `hsla(${circle.hue}, 90%, 70%, ${circle.alpha})`;
+          context.current.fill();
+        }
+      }
+      animFrameId.current = window.requestAnimationFrame(animate);
+    };
+
+    resizeCanvas();
     animate();
-    window.addEventListener("resize", initCanvas);
+
+    window.addEventListener("resize", resizeCanvas, { passive: true });
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
 
     return () => {
-      window.removeEventListener("resize", initCanvas);
+      window.removeEventListener("resize", resizeCanvas);
+      window.removeEventListener("mousemove", handleMouseMove);
+      if (animFrameId.current) {
+        window.cancelAnimationFrame(animFrameId.current);
+      }
     };
-  }, []);
-
-  useEffect(() => {
-    onMouseMove();
-  }, []);
-
-  const initCanvas = () => {
-    resizeCanvas();
-    drawParticles();
-  };
-
-  const onMouseMove = () => {
-    if (canvasRef.current) {
-      window.addEventListener("mousemove", (event) => {
-        const { clientX, clientY } = event;
-        const rect = canvasRef.current?.getBoundingClientRect();
-        if (rect) {
-          const x = clientX - rect.left - canvasSize.current.w / 2;
-          const y = clientY - rect.top - canvasSize.current.h / 2;
-          const inside =
-            clientX >= rect.left &&
-            clientX <= rect.right &&
-            clientY >= rect.top &&
-            clientY <= rect.bottom;
-          if (inside) {
-            mouse.current.x = x;
-            mouse.current.y = y;
-          }
-        }
-      });
-    }
-  };
-
-  type Circle = {
-    x: number;
-    y: number;
-    translateX: number;
-    translateY: number;
-    size: number;
-    alpha: number;
-    targetAlpha: number;
-    dx: number;
-    dy: number;
-    magnetism: number;
-    hue: number;
-  };
-
-  const resizeCanvas = () => {
-    if (canvasContainerRef.current && canvasRef.current && context.current) {
-      circles.current.length = 0;
-      canvasSize.current.w = canvasContainerRef.current.offsetWidth;
-      canvasSize.current.h = canvasContainerRef.current.offsetHeight;
-      canvasRef.current.width = canvasSize.current.w * dpr;
-      canvasRef.current.height = canvasSize.current.h * dpr;
-      canvasRef.current.style.width = `${canvasSize.current.w}px`;
-      canvasRef.current.style.height = `${canvasSize.current.h}px`;
-      context.current.scale(dpr, dpr);
-    }
-  };
-
-  const circleParams = (): Circle => {
-    const x = Math.floor(Math.random() * canvasSize.current.w);
-    const y = Math.floor(Math.random() * canvasSize.current.h);
-    const translateX = 0;
-    const translateY = 0;
-    const size = Math.floor(Math.random() * 2.2) + 0.8;
-    const alpha = 0;
-    const targetAlpha = parseFloat((Math.random() * 0.6 + 0.15).toFixed(2));
-    const dx = (Math.random() - 0.5) * 0.35;
-    const dy = (Math.random() - 0.5) * 0.35;
-    const magnetism = 0.1 + Math.random() * 4;
-    const hue = Math.random() > 0.5 ? 217 : 270; // Blue or Purple
-    return {
-      x,
-      y,
-      translateX,
-      translateY,
-      size,
-      alpha,
-      targetAlpha,
-      dx,
-      dy,
-      magnetism,
-      hue,
-    };
-  };
-
-  const drawCircle = (circle: Circle, update = false) => {
-    if (context.current) {
-      const { x, y, translateX, translateY, size, alpha, hue } = circle;
-      context.current.translate(translateX, translateY);
-      context.current.beginPath();
-      context.current.arc(x, y, size, 0, 2 * Math.PI);
-      context.current.fillStyle = `hsla(${hue}, 90%, 70%, ${alpha})`;
-      context.current.fill();
-      context.current.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-      if (!update) {
-        circles.current.push(circle);
-      }
-    }
-  };
-
-  const drawParticles = () => {
-    clearContext();
-    const particleCount = quantity;
-    for (let i = 0; i < particleCount; i++) {
-      const circle = circleParams();
-      drawCircle(circle);
-    }
-  };
-
-  const remapValue = (
-    value: number,
-    start1: number,
-    end1: number,
-    start2: number,
-    end2: number
-  ): number => {
-    const remapped =
-      ((value - start1) * (end2 - start2)) / (end1 - start1) + start2;
-    return remapped > 0 ? remapped : 0;
-  };
-
-  const animate = () => {
-    clearContext();
-    circles.current.forEach((circle: Circle, i: number) => {
-      // Handle the alpha opacity
-      const edge = [
-        circle.x + circle.translateX - circle.size,
-        canvasSize.current.w - circle.x - circle.translateX - circle.size,
-        circle.y + circle.translateY - circle.size,
-        canvasSize.current.h - circle.y - circle.translateY - circle.size,
-      ];
-      const closestEdge = edge.reduce((a, b) => Math.min(a, b));
-      const remapClosestEdge = parseFloat(
-        remapValue(closestEdge, 0, 20, 0, 1).toFixed(2)
-      );
-      if (remapClosestEdge > 1) {
-        circle.alpha += 0.02;
-        if (circle.alpha > circle.targetAlpha) {
-          circle.alpha = circle.targetAlpha;
-        }
-      } else {
-        circle.alpha = circle.targetAlpha * remapClosestEdge;
-      }
-      circle.x += circle.dx;
-      circle.y += circle.dy;
-      circle.translateX +=
-        (mouse.current.x / (staticity / circle.magnetism) - circle.translateX) /
-        ease;
-      circle.translateY +=
-        (mouse.current.y / (staticity / circle.magnetism) - circle.translateY) /
-        ease;
-
-      // Circle wrapping
-      if (
-        circle.x < -circle.size ||
-        circle.x > canvasSize.current.w + circle.size ||
-        circle.y < -circle.size ||
-        circle.y > canvasSize.current.h + circle.size
-      ) {
-        // Remove circle from array and add new one
-        circles.current.splice(i, 1);
-        const newCircle = circleParams();
-        drawCircle(newCircle);
-      } else {
-        drawCircle(
-          {
-            ...circle,
-            x: circle.x,
-            y: circle.y,
-            translateX: circle.translateX,
-            translateY: circle.translateY,
-            alpha: circle.alpha,
-          },
-          true
-        );
-      }
-    });
-    window.requestAnimationFrame(animate);
-  };
-
-  const clearContext = () => {
-    if (context.current) {
-      context.current.clearRect(
-        0,
-        0,
-        canvasSize.current.w,
-        canvasSize.current.h
-      );
-    }
-  };
+  }, [quantity, staticity, ease]);
 
   return (
     <div
-      className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`}
-      ref={canvasContainerRef}
+      className={`pointer-events-none fixed inset-0 overflow-hidden z-0 ${className}`}
       aria-hidden="true"
     >
-      <canvas ref={canvasRef} />
+      <canvas ref={canvasRef} className="w-full h-full block" />
     </div>
   );
 }

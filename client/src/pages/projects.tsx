@@ -98,49 +98,49 @@ export default function Projects() {
     },
     {
       title: "End-to-End Cloud MLOps Pipeline",
-      description: "Production-grade MLOps cloud pipeline supporting automated dataset ingestion, feature engineering, distributed model training, metric visualization, and seamless model registry export.",
+      description: "Automated dataset ingestion, feature engineering, distributed training, and model export pipeline built for scalable production deployment of AI models.",
       icon: Cpu,
-      tags: ["MLOps", "Python", "Data Pipelines", "Model Registry", "Automated Training"],
-      gradient: "from-indigo-500/20 via-purple-500/10 to-transparent",
+      tags: ["MLOps", "Python", "Docker", "Model Registry", "Distributed Training"],
+      gradient: "from-blue-500/20 via-cyan-500/10 to-transparent",
       glowColor: "blue" as const,
-      link: "https://github.com/Thirumalai-Tech-Developer/END-END_AI-ML_Cloud",
-      github: "https://github.com/Thirumalai-Tech-Developer/END-END_AI-ML_Cloud",
-      category: "MLOps & RAG",
-      badge: "⚡ Cloud MLOps",
-      metric: "Dataset to Model Export",
+      link: "https://github.com/Thirumalai-Tech-Developer",
+      github: "https://github.com/Thirumalai-Tech-Developer",
+      category: "Workflows & MLOps",
+      badge: "⚡ MLOps Engineering",
+      metric: "CI/CD Model Pipeline",
       isFeatured: false,
     },
     {
       title: "MCP Web Search Anti-Hallucination Agent",
-      description: "LLM agent integrating DuckDuckGo Model Context Protocol (MCP) search to cross-verify live facts and eliminate hallucinations dynamically with LoRA adapters.",
+      description: "Model Context Protocol (MCP) tool integration connecting DuckDuckGo web search with fine-tuned LoRA models to perform live fact-checking and eliminate LLM hallucinations.",
       icon: Search,
-      tags: ["MCP Protocol", "DuckDuckGo", "LLM Verification", "RAG", "Anti-Hallucination"],
-      gradient: "from-violet-500/20 via-purple-500/10 to-transparent",
+      tags: ["MCP Protocol", "DuckDuckGo", "LoRA", "Anti-Hallucination", "Tool Calling"],
+      gradient: "from-indigo-500/20 via-purple-500/10 to-transparent",
       glowColor: "purple" as const,
-      link: "https://github.com/Thirumalai-Tech-Developer/MCP_backend_usecase",
-      github: "https://github.com/Thirumalai-Tech-Developer/MCP_backend_usecase",
-      category: "MLOps & RAG",
-      badge: "🔍 Zero Hallucination",
-      metric: "95% Factuality Score",
+      link: "https://github.com/Thirumalai-Tech-Developer",
+      github: "https://github.com/Thirumalai-Tech-Developer",
+      category: "Autonomous Agents",
+      badge: "🔍 MCP Protocol",
+      metric: "Live Verified Fact Retrieval",
       isFeatured: false,
     },
     {
-      title: "Autonomous AI Frontend Builder",
-      description: "Semi-agentic AI web application builder that combines natural language planning with rule-based automated code generation and live validation.",
+      title: "Autonomous AI Frontend Web-App Builder",
+      description: "Semi-agentic and rule-based automation engine that builds complete frontend web applications directly from natural language specifications with self-healing syntax correction.",
       icon: Bot,
-      tags: ["AI Agents", "Python", "Rule Automation", "Code Synthesis", "Validation Engine"],
-      gradient: "from-blue-500/20 via-cyan-500/10 to-transparent",
-      glowColor: "cyan" as const,
+      tags: ["Semi-Agentic", "Rule Engine", "Python", "Code Synthesis", "Self-Healing"],
+      gradient: "from-teal-500/20 via-emerald-500/10 to-transparent",
+      glowColor: "emerald" as const,
       link: "https://github.com/Thirumalai-Tech-Developer/AI-Agent",
       github: "https://github.com/Thirumalai-Tech-Developer/AI-Agent",
       category: "Autonomous Agents",
-      badge: "🤖 Agentic Builder",
-      metric: "70% Dev Time Reduction",
+      badge: "🤖 Semi-Agentic AI",
+      metric: "70% Faster App Scaffolding",
       isFeatured: false,
     },
   ];
 
-  const categories = ["All", "Autonomous Agents", "Generative AI & Vision", "MLOps & RAG", "Deep Learning & Vision"];
+  const categories = ["All", "Autonomous Agents", "Generative AI & Vision", "Deep Learning & Vision", "Workflows & MLOps"];
 
   const filteredProjects =
     activeCategory === "All"
@@ -148,44 +148,45 @@ export default function Projects() {
       : projects.filter((p) => p.category === activeCategory);
 
   return (
-    <section ref={projectsRef} className="relative py-28 px-4 sm:px-6" id="projects">
+    <section ref={projectsRef} className="relative py-16 sm:py-20 md:py-24 lg:py-28 px-3 xs:px-4 sm:px-6 lg:px-8 w-full max-w-full overflow-hidden" id="projects">
       {/* Ambient background glow */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden -z-10">
-        <div className="absolute top-1/3 right-1/4 w-[38rem] h-[38rem] bg-blue-600/10 rounded-full blur-[150px]" />
+        <div className="absolute top-1/3 right-1/4 w-72 sm:w-[40rem] h-72 sm:h-[40rem] bg-blue-600/10 rounded-full blur-[100px] sm:blur-[160px]" />
+        <div className="absolute bottom-1/4 left-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-purple-600/10 rounded-full blur-[90px] sm:blur-[140px]" />
       </div>
 
-      <div className="max-w-7xl mx-auto space-y-16">
+      <div className="max-w-7xl mx-auto space-y-10 sm:space-y-12 md:space-y-16">
         
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           animate={isProjectsInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto space-y-4"
+          className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill border-primary/30 text-xs font-medium text-primary">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full glass-pill border-primary/30 text-[11px] sm:text-xs font-medium text-primary">
             <Sparkles className="w-3.5 h-3.5 text-primary" />
-            <span>AI / ML Engineering Portfolio</span>
+            <span>AI / ML Portfolio Projects</span>
           </div>
 
-          <h2 className="text-4xl sm:text-5xl font-extrabold font-[family-name:var(--font-display)] tracking-tight">
-            Featured <span className="text-gradient-primary">AI Projects & Agents</span>
+          <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-extrabold font-[family-name:var(--font-display)] tracking-tight">
+            Featured <span className="text-gradient-primary">AI Systems & Agents</span>
           </h2>
 
-          <p className="text-muted-foreground text-base sm:text-lg">
-            Autonomous coding agents, generative video & character consistency pipelines, LoRA fine-tuned models, and Graph Neural Networks from my resume.
+          <p className="text-muted-foreground text-xs xs:text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
+            Autonomous terminal agents, custom ComfyUI generative nodes, GNN gesture classification models, and cloud MLOps pipelines.
           </p>
         </motion.div>
 
-        {/* Category Filters */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+        {/* Category Switcher Tabs */}
+        <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2.5 md:gap-3">
           {categories.map((cat) => {
             const isActive = activeCategory === cat;
             return (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`relative px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
+                className={`relative px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-[11px] sm:text-xs md:text-sm font-medium transition-all duration-300 ${
                   isActive
                     ? "text-white font-semibold shadow-[0_0_20px_rgba(59,130,246,0.4)]"
                     : "glass-pill text-muted-foreground hover:text-white hover:border-white/20"
@@ -193,7 +194,7 @@ export default function Projects() {
               >
                 {isActive && (
                   <motion.div
-                    layoutId="active-proj-cat"
+                    layoutId="active-project-cat"
                     className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-purple-600 -z-10"
                     transition={{ type: "spring", stiffness: 350, damping: 28 }}
                   />
@@ -207,7 +208,7 @@ export default function Projects() {
         {/* Projects 3D Tilt Grid */}
         <motion.div 
           layout
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-7"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-7"
         >
           {filteredProjects.map((project, index) => {
             const Icon = project.icon;
@@ -218,48 +219,48 @@ export default function Projects() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isProjectsInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                className={project.isFeatured ? "md:col-span-2 lg:col-span-2" : ""}
+                className={project.isFeatured ? "col-span-1 md:col-span-2 lg:col-span-2" : "col-span-1"}
               >
                 <TiltCard
                   glowColor={project.glowColor}
-                  className={`flex flex-col justify-between p-7 h-full group ${
+                  className={`flex flex-col justify-between p-5 sm:p-7 h-full group ${
                     project.isFeatured ? "border-primary/40 bg-blue-950/20" : ""
                   }`}
                 >
-                  <div className="space-y-5">
+                  <div className="space-y-4 sm:space-y-5">
                     {/* Top Row: Icon & Status Badge */}
                     <div className="flex items-center justify-between">
-                      <div className="w-12 h-12 rounded-2xl bg-white/[0.08] border border-white/15 flex items-center justify-center backdrop-blur-md group-hover:scale-110 transition-transform duration-300">
-                        <Icon className="w-6 h-6 text-primary group-hover:text-cyan-400 transition-colors" />
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-white/[0.08] border border-white/15 flex items-center justify-center backdrop-blur-md group-hover:scale-110 transition-transform duration-300">
+                        <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary group-hover:text-cyan-400 transition-colors" />
                       </div>
 
-                      <span className="px-3 py-1 rounded-full text-[11px] font-medium bg-white/[0.06] border border-white/10 text-white/90">
+                      <span className="px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-[11px] font-medium bg-white/[0.06] border border-white/10 text-white/90">
                         {project.badge}
                       </span>
                     </div>
 
                     {/* Title & Description */}
                     <div>
-                      <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors flex items-center gap-1.5">
+                      <h3 className="text-lg sm:text-xl font-bold text-foreground group-hover:text-primary transition-colors flex items-center gap-1.5">
                         {project.title}
                       </h3>
-                      <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+                      <p className="text-xs sm:text-sm text-muted-foreground mt-1.5 sm:mt-2 leading-relaxed">
                         {project.description}
                       </p>
                     </div>
 
                     {/* Metric Chip */}
-                    <div className="p-2.5 rounded-xl bg-white/[0.03] border border-white/[0.06] text-xs font-mono text-cyan-300 flex items-center gap-2">
+                    <div className="p-2 sm:p-2.5 rounded-xl bg-white/[0.03] border border-white/[0.06] text-[11px] sm:text-xs font-mono text-cyan-300 flex items-center gap-2">
                       <Sparkles className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0" />
-                      <span>{project.metric}</span>
+                      <span className="truncate">{project.metric}</span>
                     </div>
 
                     {/* Tags */}
-                    <div className="flex flex-wrap gap-1.5 pt-1">
+                    <div className="flex flex-wrap gap-1 sm:gap-1.5 pt-1">
                       {project.tags.map((tag, tIndex) => (
                         <span
                           key={tIndex}
-                          className="px-2.5 py-1 rounded-md text-[11px] font-medium bg-white/[0.04] border border-white/[0.08] text-muted-foreground"
+                          className="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md text-[10px] sm:text-[11px] font-medium bg-white/[0.04] border border-white/[0.08] text-muted-foreground"
                         >
                           {tag}
                         </span>
@@ -268,19 +269,19 @@ export default function Projects() {
                   </div>
 
                   {/* Bottom Action Links */}
-                  <div className="flex items-center gap-3 pt-6 mt-6 border-t border-white/[0.08]">
+                  <div className="flex items-center gap-2 sm:gap-3 pt-4 sm:pt-6 mt-4 sm:mt-6 border-t border-white/[0.08]">
                     <a
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1"
+                      className="flex-1 min-w-0"
                     >
                       <Button
                         size="sm"
-                        className="w-full h-9 rounded-xl bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90 text-white text-xs font-medium shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300 group/btn"
+                        className="w-full h-8 sm:h-9 rounded-xl bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90 text-white text-[11px] sm:text-xs font-medium shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300 group/btn"
                       >
-                        <span>View Source & Architecture</span>
-                        <ArrowUpRight className="w-3.5 h-3.5 ml-1.5 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                        <span className="truncate">View Architecture</span>
+                        <ArrowUpRight className="w-3.5 h-3.5 ml-1.5 flex-shrink-0 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                       </Button>
                     </a>
 
@@ -288,13 +289,14 @@ export default function Projects() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
+                      className="flex-shrink-0"
                     >
                       <Button
                         variant="outline"
                         size="icon"
-                        className="h-9 w-9 rounded-xl glass-pill hover:text-white hover:border-white/30"
+                        className="h-8 w-8 sm:h-9 sm:w-9 rounded-xl glass-pill hover:text-white hover:border-white/30"
                       >
-                        <Github className="w-4 h-4" />
+                        <Github className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                       </Button>
                     </a>
                   </div>

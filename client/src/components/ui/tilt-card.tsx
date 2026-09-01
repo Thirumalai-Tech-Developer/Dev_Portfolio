@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 interface TiltCardProps {
@@ -12,16 +12,23 @@ export default function TiltCard({
   children,
   className = "",
   glowColor = "blue",
-  maxTilt = 12,
+  maxTilt = 10,
 }: TiltCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setIsTouchDevice(window.matchMedia("(hover: none)").matches || window.innerWidth < 768);
+    }
+  }, []);
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  const mouseXSpring = useSpring(x, { stiffness: 250, damping: 25 });
-  const mouseYSpring = useSpring(y, { stiffness: 250, damping: 25 });
+  const mouseXSpring = useSpring(x, { stiffness: 200, damping: 25 });
+  const mouseYSpring = useSpring(y, { stiffness: 200, damping: 25 });
 
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], [maxTilt, -maxTilt]);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], [-maxTilt, maxTilt]);
@@ -30,7 +37,7 @@ export default function TiltCard({
   const [shineY, setShineY] = useState(50);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
+    if (isTouchDevice || !cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
 
     const mouseX = e.clientX - rect.left;
@@ -47,7 +54,7 @@ export default function TiltCard({
   };
 
   const handleMouseEnter = () => {
-    setIsHovered(true);
+    if (!isTouchDevice) setIsHovered(true);
   };
 
   const handleMouseLeave = () => {
@@ -65,7 +72,7 @@ export default function TiltCard({
 
   return (
     <div
-      style={{ perspective: 1000 }}
+      style={{ perspective: isTouchDevice ? "none" : 1000 }}
       className="w-full h-full"
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
@@ -74,27 +81,29 @@ export default function TiltCard({
       <motion.div
         ref={cardRef}
         style={{
-          rotateX,
-          rotateY,
-          transformStyle: "preserve-3d",
+          rotateX: isTouchDevice ? 0 : rotateX,
+          rotateY: isTouchDevice ? 0 : rotateY,
+          transformStyle: isTouchDevice ? "flat" : "preserve-3d",
         }}
         animate={{
-          scale: isHovered ? 1.02 : 1,
+          scale: isHovered && !isTouchDevice ? 1.02 : 1,
         }}
         transition={{ duration: 0.2 }}
         className={`relative w-full h-full rounded-2xl overflow-hidden glass-card transition-shadow duration-300 ${className}`}
       >
-        {/* Holographic light reflection overlay */}
-        <div
-          className="pointer-events-none absolute inset-0 transition-opacity duration-300"
-          style={{
-            opacity: isHovered ? 0.8 : 0,
-            background: `radial-gradient(circle 280px at ${shineX}% ${shineY}%, ${glowStyles[glowColor]}, transparent 70%)`,
-          }}
-        />
+        {/* Holographic light reflection overlay (only on desktop hover) */}
+        {!isTouchDevice && (
+          <div
+            className="pointer-events-none absolute inset-0 transition-opacity duration-300"
+            style={{
+              opacity: isHovered ? 0.8 : 0,
+              background: `radial-gradient(circle 280px at ${shineX}% ${shineY}%, ${glowStyles[glowColor]}, transparent 70%)`,
+            }}
+          />
+        )}
 
         {/* Content */}
-        <div className="relative z-10 w-full h-full" style={{ transform: "translateZ(20px)" }}>
+        <div className="relative z-10 w-full h-full" style={{ transform: isTouchDevice ? "none" : "translateZ(15px)" }}>
           {children}
         </div>
       </motion.div>
