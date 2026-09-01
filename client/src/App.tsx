@@ -7,12 +7,13 @@ import Home from "@/pages/home";
 import NotFound from "@/pages/not-found";
 import Aiwebsite from "@/pages/blob/Aiwebsite";
 import SignLanguage from "@/pages/blob/SignLanguage";
-
+import KratosAgent from "@/pages/blob/KratosAgent";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/blob/kratos" component={KratosAgent} />
       <Route path="/blob/aiwebsite" component={Aiwebsite} />
       <Route path="/blob/signlanguage" component={SignLanguage} />
       <Route component={NotFound} />

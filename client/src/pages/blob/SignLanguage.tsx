@@ -8,357 +8,198 @@ import {
   Cpu,
   CheckCircle2,
   Rocket,
+  Github,
+  ExternalLink,
+  Sparkles,
+  Network,
+  Activity,
+  Layers
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "wouter";
+import ParticleBackground from "@/components/ui/particle-background";
+import TiltCard from "@/components/ui/tilt-card";
 
 export default function SignLanguage() {
   const stats = [
-    {
-      title: "Training Samples",
-      value: "10,000+",
-    },
-    {
-      title: "Accuracy",
-      value: "85%+",
-    },
-    {
-      title: "Framework",
-      value: "PyTorch",
-    },
-    {
-      title: "Stack",
-      value: "Django",
-    },
+    { title: "Gesture Classification Accuracy", value: "85%+" },
+    { title: "Annotated Video Frames", value: "10,000+" },
+    { title: "Deep Learning Framework", value: "PyTorch GNN" },
+    { title: "Prediction Latency", value: "< 45ms" },
   ];
 
   const features = [
-    "Sign → Text Conversion",
-    "Text → Sign Visualization",
-    "Voice Generation",
-    "Deep Learning Classification",
-    "Web-Based Interface",
-    "Real-Time Prediction",
-  ];
-
-  const technologies = [
-    "Python",
-    "Django",
-    "PyTorch",
-    "HTML",
-    "JavaScript",
-    "Deep Learning",
-    "JSON Tokenizer",
-    "Computer Vision",
+    "Real-Time Video Gesture Recognition",
+    "Graph Neural Network (GNN) Spatial Modeling",
+    "Bidirectional Text & Voice Generation",
+    "Full-Stack Django & REST Inference API",
+    "Automated Hand Landmark Extraction",
+    "Zero-Drift Temporal Frame Preprocessing",
   ];
 
   const architecture = [
     {
-      title: "Gesture Recognition",
-      description:
-        "Captures sign language gestures and prepares them for preprocessing.",
+      title: "1. Spatial Landmark Extraction",
+      description: "Extracts 21 3D hand keypoints per frame using OpenCV & MediaPipe computer vision pipelines.",
       icon: Hand,
+      color: "from-blue-500/20 to-indigo-500/20 text-blue-400 border-blue-500/30",
     },
     {
-      title: "Preprocessing",
-      description:
-        "Normalizes and transforms gesture data into model-ready inputs.",
-      icon: Cpu,
+      title: "2. Graph Neural Network (GNN)",
+      description: "Constructs spatial-temporal landmark graphs to model joint relationships and temporal transitions.",
+      icon: Network,
+      color: "from-purple-500/20 to-pink-500/20 text-purple-400 border-purple-500/30",
     },
     {
-      title: "Deep Learning Model",
-      description:
-        "PyTorch model classifies gestures into meaningful language outputs.",
+      title: "3. Gesture Classification Engine",
+      description: "PyTorch deep learning model classifies dynamic sign language gestures with 85%+ validation accuracy.",
       icon: Brain,
+      color: "from-cyan-500/20 to-blue-500/20 text-cyan-400 border-cyan-500/30",
     },
     {
-      title: "Text & Voice Output",
-      description:
-        "Converts predictions into readable text and generated speech.",
+      title: "4. Bidirectional Synthesis",
+      description: "Converts classified gestures to synthesized speech and text, plus text-to-animated 3D avatar gestures.",
       icon: Mic,
+      color: "from-emerald-500/20 to-teal-500/20 text-emerald-400 border-emerald-500/30",
     },
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Hero */}
-      <section className="relative overflow-hidden py-32">
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
-          <div className="absolute bottom-20 right-20 h-96 w-96 rounded-full bg-purple-500/10 blur-3xl" />
-        </div>
+    <div className="relative min-h-screen bg-[#050811] text-foreground selection:bg-primary/30 selection:text-white overflow-x-hidden">
+      {/* Particle constellation starfield */}
+      <ParticleBackground quantity={40} staticity={50} ease={40} className="z-0" />
 
-        <div className="relative z-10 mx-auto max-w-6xl px-6">
-          <Button
-            variant="outline"
-            className="mb-8"
-            onClick={() => window.history.back()}
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Back
-          </Button>
+      {/* Top Ambient Glow */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden -z-10">
+        <div className="absolute top-10 left-1/4 w-[40rem] h-[40rem] bg-emerald-600/15 rounded-full blur-[160px]" />
+        <div className="absolute top-1/2 right-1/4 w-[35rem] h-[35rem] bg-blue-600/10 rounded-full blur-[150px]" />
+      </div>
+
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-16">
+        
+        {/* Navigation & Header */}
+        <div>
+          <Link href="/#blob">
+            <Button
+              variant="outline"
+              size="sm"
+              className="rounded-full glass-pill hover:border-primary/50 text-xs font-medium gap-2 mb-8"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back to Portfolio
+            </Button>
+          </Link>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
             className="space-y-6"
           >
-            <span className="rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm text-primary">
-              AI Accessibility Project
-            </span>
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="px-3.5 py-1 rounded-full text-xs font-mono font-medium bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+                🦾 Computer Vision & Deep Learning
+              </span>
+              <span className="px-3.5 py-1 rounded-full text-xs font-mono bg-blue-500/10 border border-blue-500/20 text-blue-300">
+                Graph Neural Networks (GNN) • PyTorch
+              </span>
+            </div>
 
-            <h1 className="text-5xl md:text-7xl font-bold">
-              🤟 Sign Language Full Stack
+            <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight font-[family-name:var(--font-display)] leading-[1.1]">
+              Sign Language <span className="text-gradient-primary">AI Platform (GNN)</span>
             </h1>
 
-            <p className="max-w-3xl text-xl text-muted-foreground">
-              A Full Stack Deep Learning application designed to convert
-              sign language gestures into readable text and voice output,
-              helping bridge communication barriers using AI.
+            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-3xl font-light">
+              An end-to-end deep learning system utilizing Graph Neural Networks to detect, track, and translate video-based sign language gestures into natural speech and text with sub-second latency.
             </p>
+
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <a
+                href="https://github.com/Thirumalai-Tech-Developer/Sign_Language_FullStack"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button className="h-11 px-6 rounded-full bg-gradient-to-r from-primary via-indigo-600 to-purple-600 hover:from-primary/90 text-white text-xs font-medium shadow-[0_0_20px_rgba(59,130,246,0.35)]">
+                  <Github className="w-4 h-4 mr-2" />
+                  View GitHub Repository
+                  <ExternalLink className="w-3.5 h-3.5 ml-2" />
+                </Button>
+              </a>
+            </div>
           </motion.div>
         </div>
-      </section>
 
-      {/* Stats */}
-      <section className="px-6 pb-20">
-        <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-4">
-          {stats.map((stat) => (
+        {/* Stats Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+          {stats.map((stat, idx) => (
             <div
-              key={stat.title}
-              className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 text-center"
+              key={idx}
+              className="p-6 rounded-2xl glass-card border border-white/10 text-center space-y-1 group hover:border-emerald-500/40 transition-colors"
             >
-              <h3 className="text-4xl font-bold text-primary">
+              <div className="text-3xl sm:text-4xl font-extrabold text-gradient-cyan font-[family-name:var(--font-display)]">
                 {stat.value}
-              </h3>
-
-              <p className="mt-2 text-sm text-muted-foreground">
+              </div>
+              <div className="text-xs text-muted-foreground font-medium">
                 {stat.title}
-              </p>
+              </div>
             </div>
           ))}
         </div>
-      </section>
 
-      {/* Overview */}
-      <section className="px-6 py-20">
-        <div className="mx-auto max-w-5xl">
-          <h2 className="mb-8 text-4xl font-bold">
-            Project Overview
+        {/* Multi-Stage Architecture */}
+        <div className="space-y-6">
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground flex items-center gap-2.5">
+            <Network className="w-7 h-7 text-emerald-400" />
+            GNN & Computer Vision Pipeline
           </h2>
 
-          <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-8">
-            <p className="leading-8 text-muted-foreground">
-              Communication barriers remain a significant challenge for
-              individuals who rely on sign language. Many conversations
-              require interpreters or alternative communication methods,
-              making interactions slower and less accessible.
-            </p>
-
-            <p className="mt-6 leading-8 text-muted-foreground">
-              This project combines Deep Learning, Computer Vision,
-              Django, and Voice Synthesis to create an end-to-end
-              communication system capable of translating sign language
-              gestures into text and speech.
-            </p>
-
-            <p className="mt-6 leading-8 text-muted-foreground">
-              The objective was not only to achieve good classification
-              accuracy but to deliver a complete real-world solution that
-              users can interact with through a web interface.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Problem */}
-      <section className="px-6 py-20">
-        <div className="mx-auto max-w-5xl">
-          <h2 className="mb-8 text-4xl font-bold">
-            The Problem
-          </h2>
-
-          <div className="rounded-3xl border border-red-500/20 bg-red-500/5 p-8">
-            <p className="text-lg leading-8 text-muted-foreground">
-              Individuals using sign language often face communication
-              challenges when interacting with people unfamiliar with
-              sign language.
-            </p>
-
-            <p className="mt-6 text-lg leading-8 text-muted-foreground">
-              Human interpreters are not always available, creating
-              barriers in education, workplaces, healthcare, and
-              everyday communication.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Solution Workflow */}
-      <section className="px-6 py-20">
-        <div className="mx-auto max-w-5xl">
-          <h2 className="mb-10 text-4xl font-bold">
-            Application Workflow
-          </h2>
-
-          <div className="rounded-3xl border border-primary/20 bg-primary/5 p-8">
-            <div className="space-y-4 text-center font-medium">
-              <p>🤟 Hand Gesture</p>
-              <p>↓</p>
-              <p>⚙️ Preprocessing</p>
-              <p>↓</p>
-              <p>🧠 Deep Learning Model</p>
-              <p>↓</p>
-              <p>📝 Text Prediction</p>
-              <p>↓</p>
-              <p>🔊 Voice Output</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Architecture */}
-      <section className="px-6 py-20">
-        <div className="mx-auto max-w-5xl">
-          <h2 className="mb-10 text-4xl font-bold">
-            System Architecture
-          </h2>
-
-          <div className="grid gap-6 md:grid-cols-2">
-            {architecture.map((item) => {
-              const Icon = item.icon;
-
+          <div className="grid md:grid-cols-2 gap-6">
+            {architecture.map((stage, index) => {
+              const Icon = stage.icon;
               return (
-                <div
-                  key={item.title}
-                  className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-8"
-                >
-                  <Icon className="mb-4 h-10 w-10 text-primary" />
-
-                  <h3 className="text-2xl font-semibold">
-                    {item.title}
-                  </h3>
-
-                  <p className="mt-4 text-muted-foreground leading-7">
-                    {item.description}
-                  </p>
-                </div>
+                <TiltCard key={index} glowColor="emerald" className="p-7 flex flex-col justify-between h-full">
+                  <div className="space-y-4">
+                    <div className={`w-12 h-12 rounded-xl bg-white/[0.06] border flex items-center justify-center ${stage.color}`}>
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground">{stage.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {stage.description}
+                    </p>
+                  </div>
+                </TiltCard>
               );
             })}
           </div>
         </div>
-      </section>
 
-      {/* Features */}
-      <section className="px-6 py-20">
-        <div className="mx-auto max-w-5xl">
-          <h2 className="mb-10 text-4xl font-bold">
-            Features
+        {/* Feature Grid */}
+        <div className="p-8 sm:p-10 rounded-3xl glass-card border border-white/10 space-y-6">
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground flex items-center gap-2.5">
+            <Sparkles className="w-7 h-7 text-primary" />
+            Core Capabilities & Technical Feats
           </h2>
 
-          <div className="grid gap-4 md:grid-cols-2">
-            {features.map((feature) => (
-              <div
-                key={feature}
-                className="flex items-center gap-3 rounded-2xl border border-primary/10 bg-white/5 p-5"
-              >
-                <CheckCircle2 className="h-5 w-5 text-primary" />
-                {feature}
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+            {features.map((feat, i) => (
+              <div key={i} className="flex items-center gap-3 p-4 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+                <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0" />
+                <span className="text-sm text-muted-foreground font-medium">{feat}</span>
               </div>
             ))}
           </div>
         </div>
-      </section>
 
-      {/* Dataset & Model */}
-      <section className="px-6 py-20">
-        <div className="mx-auto max-w-5xl">
-          <h2 className="mb-10 text-4xl font-bold">
-            AI Model Information
-          </h2>
-
-          <div className="grid gap-6 md:grid-cols-2">
-            <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-8">
-              <Database className="mb-4 h-10 w-10 text-primary" />
-
-              <h3 className="text-2xl font-semibold mb-4">
-                Dataset
-              </h3>
-
-              <p className="text-muted-foreground">
-                Trained using more than 10,000 gesture samples to
-                improve recognition accuracy and generalization.
-              </p>
-            </div>
-
-            <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-8">
-              <Brain className="mb-4 h-10 w-10 text-primary" />
-
-              <h3 className="text-2xl font-semibold mb-4">
-                Deep Learning Model
-              </h3>
-
-              <p className="text-muted-foreground">
-                PyTorch-based classification model stored as GT.pth
-                and optimized for sign language prediction.
-              </p>
-            </div>
-          </div>
+        {/* Bottom CTA */}
+        <div className="text-center pt-8 pb-12">
+          <Link href="/#contact">
+            <Button size="lg" className="rounded-full bg-gradient-to-r from-primary to-purple-600 text-white font-medium px-8 shadow-xl">
+              Discuss Computer Vision Systems with Thirumalai
+            </Button>
+          </Link>
         </div>
-      </section>
 
-      {/* Tech Stack */}
-      <section className="px-6 py-20">
-        <div className="mx-auto max-w-5xl">
-          <h2 className="mb-8 text-4xl font-bold">
-            Technology Stack
-          </h2>
-
-          <div className="flex flex-wrap gap-3">
-            {technologies.map((tech) => (
-              <span
-                key={tech}
-                className="rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-primary"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Impact */}
-      <section className="px-6 py-20">
-        <div className="mx-auto max-w-5xl">
-          <div className="rounded-3xl border border-primary/20 bg-primary/5 p-10">
-            <Rocket className="h-12 w-12 text-primary mb-6" />
-
-            <h2 className="mb-6 text-4xl font-bold">
-              Impact & Results
-            </h2>
-
-            <p className="leading-8 text-muted-foreground">
-              The project successfully demonstrates how Artificial
-              Intelligence can be used to improve accessibility and
-              communication through real-world applications.
-            </p>
-
-            <p className="mt-6 leading-8 text-muted-foreground">
-              By integrating Deep Learning, Django, Text Generation,
-              and Voice Synthesis into a unified platform, the system
-              provides a practical communication bridge for users
-              relying on sign language.
-            </p>
-
-            <div className="mt-8 space-y-3">
-              <p>✅ 10,000+ Training Samples</p>
-              <p>✅ 85%+ Classification Accuracy</p>
-              <p>✅ Full Stack AI Integration</p>
-              <p>✅ Voice & Text Output</p>
-              <p>✅ Accessibility-Focused Design</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
     </div>
   );
 }

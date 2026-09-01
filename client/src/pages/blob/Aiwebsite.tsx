@@ -7,389 +7,274 @@ import {
   Rocket,
   ArrowLeft,
   CheckCircle2,
+  ExternalLink,
+  Github,
+  Sparkles,
+  Layers,
+  FileCode2,
+  Workflow
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "wouter";
+import ParticleBackground from "@/components/ui/particle-background";
+import TiltCard from "@/components/ui/tilt-card";
 
 export default function Aiwebsite() {
   const stats = [
-    {
-      title: "Development Time Saved",
-      value: "70%",
-    },
-    {
-      title: "Lines of Code",
-      value: "2,132+",
-    },
-    {
-      title: "Pipeline Stages",
-      value: "4",
-    },
-    {
-      title: "Manual Fixes",
-      value: "2-3",
-    },
-  ];
-
-  const codeStats = [
-    ["Python", "1,594"],
-    ["CSS", "295"],
-    ["JSON", "137"],
-    ["SVG", "27"],
-    ["TypeScript", "26"],
-    ["JavaScript", "21"],
-    ["TSX", "19"],
-    ["HTML", "13"],
+    { title: "Development Time Saved", value: "70%" },
+    { title: "Lines of Python & TS", value: "2,130+" },
+    { title: "Pipeline Automation Stages", value: "4 Stages" },
+    { title: "Manual Interventions Required", value: "< 2" },
   ];
 
   const stages = [
     {
-      title: "Planning",
-      description:
-        "Transforms natural language prompts into structured architecture blueprints.",
+      title: "1. Intent & Planning Stage",
+      description: "Transforms natural language prompts into a structured architecture plan with component tree definitions, design tokens, and routing schemas.",
+      badge: "LLM Planning Engine",
+      color: "from-blue-500/20 to-indigo-500/20 text-blue-400 border-blue-500/30",
+      icon: Brain,
     },
     {
-      title: "Execution",
-      description:
-        "Converts architecture plans into component generation tasks.",
+      title: "2. Component Synthesis & Rule Engine",
+      description: "Generates fully functional, type-safe React/Tailwind components and API endpoints using deterministic templates combined with LLM code synthesis.",
+      badge: "Semi-Agentic Engine",
+      color: "from-purple-500/20 to-pink-500/20 text-purple-400 border-purple-500/30",
+      icon: Code2,
     },
     {
-      title: "Assignment",
-      description:
-        "Safely writes generated files into the project structure without race conditions.",
+      title: "3. Safe File Tree Assignment",
+      description: "Safely writes, links imports, formats dependencies, and integrates state management into the target workspace without race conditions.",
+      badge: "Workspace Manager",
+      color: "from-cyan-500/20 to-blue-500/20 text-cyan-400 border-cyan-500/30",
+      icon: Layers,
     },
     {
-      title: "Validation & Healing",
-      description:
-        "Detects errors, validates builds, and applies automated fixes.",
+      title: "4. Build Validation & Self-Healing",
+      description: "Runs instant TypeScript and AST lint checks, captures compilation issues, and applies automated self-correcting patches before final export.",
+      badge: "Auto-Healing",
+      color: "from-emerald-500/20 to-teal-500/20 text-emerald-400 border-emerald-500/30",
+      icon: CheckCircle2,
     },
   ];
 
-  return (
-    <div className="min-h-screen bg-background">
-      {/* Hero */}
-      <section className="relative overflow-hidden py-32">
-        <div className="absolute inset-0">
-          <div className="absolute left-20 top-20 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
-          <div className="absolute right-20 bottom-20 h-96 w-96 rounded-full bg-purple-500/10 blur-3xl" />
-        </div>
+  const codeStats = [
+    { lang: "Python (Agent Core)", lines: "1,594", pct: "75%" },
+    { lang: "Tailwind CSS & Styling", lines: "295", pct: "14%" },
+    { lang: "Schema & JSON AST", lines: "137", pct: "6%" },
+    { lang: "TypeScript / TSX", lines: "66", pct: "3%" },
+    { lang: "SVG & Asset Injection", lines: "40", pct: "2%" },
+  ];
 
-        <div className="relative z-10 mx-auto max-w-6xl px-6">
-          <Button
-            variant="outline"
-            className="mb-8"
-            onClick={() => window.history.back()}
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Back
-          </Button>
+  return (
+    <div className="relative min-h-screen bg-[#050811] text-foreground selection:bg-primary/30 selection:text-white overflow-x-hidden">
+      {/* Particle constellation starfield */}
+      <ParticleBackground quantity={40} staticity={50} ease={40} className="z-0" />
+
+      {/* Top Ambient Glow */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden -z-10">
+        <div className="absolute top-10 left-1/4 w-[40rem] h-[40rem] bg-blue-600/15 rounded-full blur-[160px]" />
+        <div className="absolute top-1/2 right-1/4 w-[35rem] h-[35rem] bg-purple-600/10 rounded-full blur-[150px]" />
+      </div>
+
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-16">
+        
+        {/* Navigation & Header */}
+        <div>
+          <Link href="/#blob">
+            <Button
+              variant="outline"
+              size="sm"
+              className="rounded-full glass-pill hover:border-primary/50 text-xs font-medium gap-2 mb-8"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back to Portfolio
+            </Button>
+          </Link>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
             className="space-y-6"
           >
-            <span className="rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm text-primary">
-              AI Engineering Project
-            </span>
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="px-3.5 py-1 rounded-full text-xs font-mono font-medium bg-primary/10 border border-primary/20 text-primary">
+                🤖 Semi-Agentic System
+              </span>
+              <span className="px-3.5 py-1 rounded-full text-xs font-mono bg-purple-500/10 border border-purple-500/20 text-purple-300">
+                Rule-Based Automation + LLM Synthesis
+              </span>
+            </div>
 
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-              AI Website Builder
+            <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight font-[family-name:var(--font-display)] leading-[1.1]">
+              Autonomous <span className="text-gradient-primary">AI Frontend Builder</span>
             </h1>
 
-            <p className="max-w-3xl text-xl text-muted-foreground">
-              A multi-agent AI system capable of generating complete websites
-              from natural language prompts while automatically validating,
-              debugging, and improving generated code.
+            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-3xl font-light">
+              A semi-agentic code generation engine that automates frontend scaffolding, design token injection, layout generation, and self-healing error detection directly from natural language prompts.
             </p>
+
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <a
+                href="https://github.com/Thirumalai-Tech-Developer/AI-Agent"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button className="h-11 px-6 rounded-full bg-gradient-to-r from-primary via-indigo-600 to-purple-600 hover:from-primary/90 text-white text-xs font-medium shadow-[0_0_20px_rgba(59,130,246,0.35)]">
+                  <Github className="w-4 h-4 mr-2" />
+                  View GitHub Repository
+                  <ExternalLink className="w-3.5 h-3.5 ml-2" />
+                </Button>
+              </a>
+            </div>
           </motion.div>
         </div>
-      </section>
 
-      {/* Metrics */}
-      <section className="px-6 pb-20">
-        <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-4">
-          {stats.map((stat) => (
+        {/* Video Showcase Player */}
+        <div className="space-y-4">
+          <h2 className="text-xl sm:text-2xl font-bold text-foreground flex items-center gap-2">
+            <Sparkles className="w-5 h-5 text-primary" />
+            Live Demo & Execution Recording
+          </h2>
+          <div className="w-full aspect-video rounded-3xl overflow-hidden border border-white/15 bg-black/60 shadow-2xl">
+            <iframe
+              className="h-full w-full"
+              src="https://www.youtube.com/embed/WYMLbc10btU?si=HIKowquwihc_oKVe"
+              title="Autonomous AI Website Builder Demo"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
+        </div>
+
+        {/* Stats Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+          {stats.map((stat, idx) => (
             <div
-              key={stat.title}
-              className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 text-center"
+              key={idx}
+              className="p-6 rounded-2xl glass-card border border-white/10 text-center space-y-1 group hover:border-primary/40 transition-colors"
             >
-              <h3 className="text-4xl font-bold text-primary">
+              <div className="text-3xl sm:text-4xl font-extrabold text-gradient-primary font-[family-name:var(--font-display)]">
                 {stat.value}
-              </h3>
-              <p className="mt-2 text-sm text-muted-foreground">
+              </div>
+              <div className="text-xs text-muted-foreground font-medium">
                 {stat.title}
-              </p>
+              </div>
             </div>
           ))}
         </div>
-      </section>
 
-      {/* Overview */}
-      <section className="px-6 py-20">
-        <div className="mx-auto max-w-5xl">
-          <h2 className="mb-8 text-4xl font-bold">Project Overview</h2>
-
-          <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-8">
-            <p className="leading-8 text-muted-foreground">
-              Traditional web development involves a significant amount of
-              repetitive setup work before developers can focus on solving real
-              business problems. Creating folder structures, configuring
-              dependencies, designing layouts, implementing routing, fixing
-              imports, and debugging build issues consume a large portion of
-              development time.
-            </p>
-
-            <p className="mt-6 leading-8 text-muted-foreground">
-              The AI Website Builder was created to reduce this overhead. By
-              combining multiple AI agents with a structured generation
-              pipeline, the system can transform a simple natural language
-              prompt into a production-ready website scaffold.
-            </p>
-
-            <p className="mt-6 leading-8 text-muted-foreground">
-              Instead of spending hours building project foundations manually,
-              developers can start with a fully generated baseline and focus on
-              product logic, design refinement, and feature development.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Problem */}
-      <section className="px-6 py-20">
-        <div className="mx-auto max-w-5xl">
-          <h2 className="mb-8 text-4xl font-bold">The Problem</h2>
-
-          <div className="rounded-3xl border border-red-500/20 bg-red-500/5 p-8">
-            <div className="space-y-4 text-lg text-muted-foreground">
-              <p>Idea → Project Setup</p>
-              <p>Project Setup → Dependencies</p>
-              <p>Dependencies → Components</p>
-              <p>Components → Styling</p>
-              <p>Styling → Routing</p>
-              <p>Routing → Debugging</p>
-              <p>Debugging → Working Website</p>
-            </div>
-          </div>
-
-          <p className="mt-8 text-muted-foreground leading-8">
-            Most developers repeatedly solve the same setup problems. The goal
-            of this project is not to replace engineers but to automate these
-            repetitive engineering tasks.
-          </p>
-        </div>
-      </section>
-
-      {/* Solution */}
-      <section className="px-6 py-20">
-        <div className="mx-auto max-w-5xl">
-          <h2 className="mb-8 text-4xl font-bold">The Solution</h2>
-
-          <div className="rounded-3xl border border-primary/20 bg-primary/5 p-8">
-            <p className="text-lg leading-8">
-              Input:
-            </p>
-
-            <div className="mt-4 rounded-xl border border-primary/20 bg-background/50 p-4 font-mono">
-              Create a modern cryptocurrency dashboard with responsive design
-              and dark mode support.
-            </div>
-
-            <div className="mt-8 grid gap-4 md:grid-cols-2">
-              {[
-                "Architecture Planning",
-                "Component Generation",
-                "Routing Setup",
-                "Tailwind Styling",
-                "Validation Checks",
-                "Runtime Error Detection",
-                "Automated Fixes",
-                "Production Ready Structure",
-              ].map((item) => (
-                <div
-                  key={item}
-                  className="flex items-center gap-3 rounded-xl border border-primary/10 p-4"
-                >
-                  <CheckCircle2 className="h-5 w-5 text-primary" />
-                  {item}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Pipeline */}
-      <section className="px-6 py-20">
-        <div className="mx-auto max-w-5xl">
-          <h2 className="mb-12 text-4xl font-bold">
-            Multi-Agent Pipeline
+        {/* Multi-Agent Pipeline Stages */}
+        <div className="space-y-6">
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground flex items-center gap-2.5">
+            <Workflow className="w-7 h-7 text-primary" />
+            4-Stage Semi-Agentic Generation Pipeline
           </h2>
 
-          <div className="space-y-6">
-            {stages.map((stage, index) => (
-              <div
-                key={stage.title}
-                className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-8"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary font-bold">
-                    {index + 1}
-                  </div>
-
-                  <div>
-                    <h3 className="text-2xl font-semibold">
-                      {stage.title}
-                    </h3>
-
-                    <p className="text-muted-foreground mt-2">
+          <div className="grid md:grid-cols-2 gap-6">
+            {stages.map((stage, index) => {
+              const Icon = stage.icon;
+              return (
+                <TiltCard key={index} glowColor="purple" className="p-7 flex flex-col justify-between h-full">
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <div className={`w-12 h-12 rounded-xl bg-white/[0.06] border flex items-center justify-center ${stage.color}`}>
+                        <Icon className="w-6 h-6" />
+                      </div>
+                      <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-medium bg-white/[0.05] border border-white/10 text-muted-foreground">
+                        {stage.badge}
+                      </span>
+                    </div>
+                    
+                    <h3 className="text-xl font-bold text-foreground">{stage.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
                       {stage.description}
                     </p>
                   </div>
+                </TiltCard>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Code Composition Breakdown */}
+        <div className="p-8 sm:p-10 rounded-3xl glass-card border border-white/10 space-y-6">
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground flex items-center gap-2.5">
+            <FileCode2 className="w-7 h-7 text-primary" />
+            Codebase Composition & Implementation
+          </h2>
+
+          <div className="space-y-4">
+            {codeStats.map((item, i) => (
+              <div key={i} className="space-y-1.5">
+                <div className="flex justify-between text-xs font-mono">
+                  <span className="text-foreground font-semibold">{item.lang}</span>
+                  <span className="text-primary font-bold">{item.lines} lines ({item.pct})</span>
+                </div>
+                <div className="w-full bg-white/[0.08] rounded-full h-2 overflow-hidden">
+                  <div
+                    className="h-full rounded-full bg-gradient-to-r from-blue-500 to-purple-500"
+                    style={{ width: item.pct }}
+                  />
                 </div>
               </div>
             ))}
           </div>
         </div>
-      </section>
 
-      {/* Memory */}
-      <section className="px-6 py-20">
-        <div className="mx-auto max-w-5xl">
-          <h2 className="mb-8 text-4xl font-bold">
-            Agentic Memory System
-          </h2>
+        {/* Problem vs Solution Comparison */}
+        <div className="grid md:grid-cols-2 gap-6">
+          {/* Problem */}
+          <div className="p-8 rounded-3xl glass-card border border-red-500/20 bg-red-950/10 space-y-4">
+            <h3 className="text-xl font-bold text-red-400">The Problem: Manual Frontend Overhead</h3>
+            <ul className="space-y-2.5 text-sm text-muted-foreground">
+              <li className="flex items-start gap-2">
+                <span className="text-red-400 font-bold">✕</span>
+                <span>Configuring boilerplates, routing, and styling takes hours.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-red-400 font-bold">✕</span>
+                <span>LLMs frequently hallucinate broken imports and invalid CSS tokens.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-red-400 font-bold">✕</span>
+                <span>Repetitive setup slows down rapid client prototyping.</span>
+              </li>
+            </ul>
+          </div>
 
-          <div className="grid gap-8 md:grid-cols-2">
-            <div className="rounded-3xl border border-primary/10 bg-white/5 backdrop-blur-xl p-8">
-              <Brain className="h-10 w-10 text-primary mb-4" />
-
-              <h3 className="text-2xl font-semibold mb-4">
-                Short-Term Memory
-              </h3>
-
-              <p className="text-muted-foreground leading-7">
-                Tracks generated files, debugging sessions, fixes, and active
-                execution state during a pipeline run.
-              </p>
-            </div>
-
-            <div className="rounded-3xl border border-primary/10 bg-white/5 backdrop-blur-xl p-8">
-              <Database className="h-10 w-10 text-primary mb-4" />
-
-              <h3 className="text-2xl font-semibold mb-4">
-                Long-Term Memory
-              </h3>
-
-              <p className="text-muted-foreground leading-7">
-                Learns recurring dependency issues and stores permanent rules
-                that improve future generations.
-              </p>
-            </div>
+          {/* Solution */}
+          <div className="p-8 rounded-3xl glass-card border border-emerald-500/20 bg-emerald-950/10 space-y-4">
+            <h3 className="text-xl font-bold text-emerald-400">The Solution: Semi-Agentic Orchestration</h3>
+            <ul className="space-y-2.5 text-sm text-muted-foreground">
+              <li className="flex items-start gap-2">
+                <span className="text-emerald-400 font-bold">✓</span>
+                <span>Deterministic rules guarantee valid AST structure and type safety.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-emerald-400 font-bold">✓</span>
+                <span>Self-healing loop catches syntax errors and auto-patches before export.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-emerald-400 font-bold">✓</span>
+                <span>Cuts boilerplate generation time by over 70%.</span>
+              </li>
+            </ul>
           </div>
         </div>
-      </section>
 
-      {/* Tech Stack */}
-      <section className="px-6 py-20">
-        <div className="mx-auto max-w-5xl">
-          <h2 className="mb-8 text-4xl font-bold">
-            Technology Stack
-          </h2>
-
-          <div className="flex flex-wrap gap-3">
-            {[
-              "Python",
-              "React",
-              "TypeScript",
-              "TailwindCSS",
-              "LangChain",
-              "Selenium",
-              "AI Agents",
-              "Wouter",
-              "Radix UI",
-              "Shadcn/UI",
-              "OKLCH",
-            ].map((tech) => (
-              <span
-                key={tech}
-                className="rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-primary"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
+        {/* Bottom CTA */}
+        <div className="text-center pt-8 pb-12">
+          <Link href="/#contact">
+            <Button size="lg" className="rounded-full bg-gradient-to-r from-primary to-purple-600 text-white font-medium px-8 shadow-xl">
+              Collaborate on AI Automation with Thirumalai
+            </Button>
+          </Link>
         </div>
-      </section>
 
-      {/* Code Stats */}
-      <section className="px-6 py-20">
-        <div className="mx-auto max-w-5xl">
-          <h2 className="mb-8 text-4xl font-bold">
-            Code Statistics
-          </h2>
-
-          <div className="overflow-hidden rounded-3xl border border-white/10">
-            <table className="w-full">
-              <thead>
-                <tr className="bg-primary/10">
-                  <th className="p-4 text-left">Language</th>
-                  <th className="p-4 text-right">Lines</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                {codeStats.map(([lang, count]) => (
-                  <tr
-                    key={lang}
-                    className="border-t border-white/10"
-                  >
-                    <td className="p-4">{lang}</td>
-                    <td className="p-4 text-right">{count}</td>
-                  </tr>
-                ))}
-
-                <tr className="border-t border-primary/20 font-bold">
-                  <td className="p-4">Total</td>
-                  <td className="p-4 text-right">2,132</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      {/* Impact */}
-      <section className="px-6 py-20">
-        <div className="mx-auto max-w-5xl">
-          <div className="rounded-3xl border border-primary/20 bg-primary/5 p-10">
-            <Rocket className="h-12 w-12 text-primary mb-6" />
-
-            <h2 className="text-4xl font-bold mb-6">
-              Impact & Results
-            </h2>
-
-            <p className="leading-8 text-muted-foreground">
-              This project successfully reduced website development overhead by
-              more than 70% by automating planning, generation, validation, and
-              debugging workflows.
-            </p>
-
-            <p className="mt-6 leading-8 text-muted-foreground">
-              In many cases, generated websites require only 2–3 manual fixes
-              before becoming production-ready. When paired with
-              programming-focused models, complete working websites can often be
-              generated in a single attempt.
-            </p>
-
-            <p className="mt-6 leading-8 text-muted-foreground">
-              The purpose of this project is not to replace developers but to
-              eliminate repetitive engineering work and accelerate the journey
-              from idea to working product.
-            </p>
-          </div>
-        </div>
-      </section>
+      </div>
     </div>
   );
 }

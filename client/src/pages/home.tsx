@@ -7,21 +7,32 @@ import Education from "@/pages/education";
 import Projects from "@/pages/projects";
 import Blob from "@/pages/blob";
 import KidoAI from "@/components/layout/kidoAI";
+import ParticleBackground from "@/components/ui/particle-background";
 
 export default function Home() {
   return (
-    <>
-      <div className="overflow-x-hidden w-full">
-        <Navbar />
-        <KidoAI />
+    <div className="relative min-h-screen bg-[#050811] text-foreground selection:bg-primary/30 selection:text-white overflow-x-hidden w-full">
+      {/* Interactive Particle Constellation Starfield */}
+      <ParticleBackground quantity={55} staticity={45} ease={40} className="z-0" />
+
+      {/* Floating Dynamic Island Navigation */}
+      <Navbar />
+
+      {/* Floating Kido AI Assistant */}
+      <KidoAI />
+
+      {/* Main Portfolio Sections */}
+      <main className="relative z-10">
         <Hero />
         <Skills />
         <Projects />
         <Blob />
         <Education />
         <Contact />
-        <Footer />
-      </div>
-    </>
+      </main>
+
+      {/* Modern Glass Footer */}
+      <Footer />
+    </div>
   );
 }

@@ -1,172 +1,247 @@
-import { useEffect, useState, useRef } from "react";
+import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { 
   Briefcase,
   GraduationCap,
   Sparkles,
+  Calendar,
+  MapPin,
+  Building,
+  CheckCircle2,
+  Award,
+  Bot,
+  Layers,
+  Cpu,
+  Video,
+  Network
 } from "lucide-react";
+import TiltCard from "@/components/ui/tilt-card";
 
 export default function Education() {
-    
-  const experienceRef = useRef(null);
-  const isExperienceInView = useInView(experienceRef, { once: true, margin: "-100px" });
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-80px" });
+
   const experiences = [
     {
-      title: "Web Developer",
-      company: "ZFusionAI",
-      location: "India",
-      period: "Sep 2025 – Feb 2026",
+      title: "AI Developer",
+      company: "ZFusionAI Tech Service",
+      location: "Tamil Nadu, India",
+      period: "Jun 2025 – May 2026",
+      type: "Full-Time AI Role",
       achievements: [
-        "Developed and deployed the company website from scratch using modern web technologies.",
-        "Improved website performance and loading speed through optimization.",
-        "Implemented SEO strategies that improved Google search rankings."
-      ]
+        "AI Agent & RAG System: Developed autonomous AI agents to complete complex tasks without relying on paid APIs, utilizing custom RAG architecture and ChromaDB vector stores.",
+        "AI Automation: Built a full frontend web-app builder combining semi-agentic workflows with rule-based automation pipelines.",
+        "AI Video Generation Pipeline: Engineered an end-to-end video generation pipeline using only free and open-source models for story video and ad synthesis.",
+        "ComfyUI Custom Nodes: Authored reusable ComfyUI nodes for persistent character consistency across multi-scene generations with copyright-safe reference embeddings.",
+        "Cloud MLOps: Built an end-to-end MLOps pipeline covering automated dataset ingestion, feature engineering, distributed model training, performance tracking, and model export."
+      ],
+      skills: ["LangChain", "ChromaDB", "ComfyUI", "MLOps", "Python 3.11", "RAG", "Video AI"],
+      glow: "purple" as const,
     },
     {
-      title: "Technical Intern",
-      company: "Vcodez",
-      location: "Chennai, India",
-      period: "Mar 2025 – Jun 2025",
+      title: "AI Intern",
+      company: "Vcodez Tech Service",
+      location: "Tamil Nadu, India",
+      period: "May 2025 – Jun 2025",
+      type: "AI & ML Internship",
       achievements: [
-        "Developed a complete client project within 3 days under tight deadlines.",
-        "Built a web-based system for video upload and backend classification."
-      ]
+        "Machine Learning & Generative AI: Contributed to multiple ML and generative AI projects, including a high-end real-estate visualization solution built with Stable Diffusion (SD) and LoRA (Low-Rank Adaptation) fine-tuning.",
+        "AI Sign Language Classification: Developed an AI gesture classification model using Graph Neural Networks (GNNs) and computer vision to support seamless communication with deaf individuals."
+      ],
+      skills: ["Stable Diffusion", "LoRA Fine-Tuning", "Graph Neural Networks (GNN)", "OpenCV", "PyTorch"],
+      glow: "blue" as const,
     }
   ];
 
   const education = [
     {
-      degree: "B.Tech",
+      degree: "Bachelor of Technology (B.Tech), Artificial Intelligence & Data Science",
       institution: "Muthayammal College of Engineering",
-      location: "Rasipuram",
-      period: "Aug 2021 – May 2025",
-      score: "CGPA: 7.86"
-    },
-    {
-      degree: "HSC",
-      institution: "New Power Matric Higher Secondary School",
-      location: "Sankarapuram",
-      period: "Aug 2020 – May 2021",
-      score: "77.8%"
-    },
-    {
-      degree: "SSLC",
-      institution: "New Power Matric Higher Secondary School",
-      location: "Sankarapuram",
-      period: "Aug 2018 – May 2019",
-      score: "72.2%"
+      location: "Tamil Nadu, India",
+      period: "2021 – 2025",
+      score: "First Class with Distinction",
+      badge: "Graduated",
+      highlights: "Specialization in Machine Learning, Deep Learning, Computer Vision, and Natural Language Processing",
     }
   ];
 
-  const stats = [
-    { label: "Projects Completed", value: 10, suffix: "+" },
-    { label: "Deployed Projects", value: 3, suffix: "+" },
-    { label: "Self Experience", value: 1, suffix: "+" }
-  ];
+  return (
+    <section ref={sectionRef} className="relative py-28 px-4 sm:px-6" id="experience">
+      {/* Background Ambient Glow */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden -z-10">
+        <div className="absolute top-1/2 right-1/3 w-[36rem] h-[36rem] bg-blue-600/10 rounded-full blur-[150px]" />
+      </div>
 
-  const [counters, setCounters] = useState(stats.map(() => 0));
+      <div className="max-w-7xl mx-auto space-y-20">
+        
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto space-y-4"
+        >
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill border-primary/30 text-xs font-medium text-primary">
+            <Briefcase className="w-3.5 h-3.5 text-primary" />
+            <span>Professional Career</span>
+          </div>
 
-  useEffect(() => {
-    const intervals = stats.map((stat, index) => {
-      const interval = setInterval(() => {
-        setCounters((prev) => {
-          const newCounters = [...prev];
-          if (newCounters[index] < stat.value) {
-            newCounters[index] = Math.min(newCounters[index] + 1, stat.value);
-          }
-          return newCounters;
-        });
-      }, 50);
-      return interval;
-    });
+          <h2 className="text-4xl sm:text-5xl font-extrabold font-[family-name:var(--font-display)] tracking-tight">
+            Work Experience & <span className="text-gradient-primary">Education</span>
+          </h2>
 
-    return () => intervals.forEach(clearInterval);
-  }, []);
+          <p className="text-muted-foreground text-base sm:text-lg">
+            Hands-on track record building production AI agents, fine-tuning generative models, and engineering MLOps pipelines from my resume.
+          </p>
+        </motion.div>
 
-  return(
-    <section ref={experienceRef} className="py-24 px-6 bg-card/30" id="experience">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isExperienceInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 font-[family-name:var(--font-display)]">
-              Experience
-            </h2>
-            <p className="text-muted-foreground text-lg">
-              Building AI solutions across diverse domains
-            </p>
-          </motion.div>
+        {/* Experience Timeline Section */}
+        <div className="space-y-8">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
+              <Briefcase className="w-5 h-5 text-primary" />
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold text-foreground">AI / ML Work Experience</h3>
+              <p className="text-xs text-muted-foreground">Engineering roles & production impact</p>
+            </div>
+          </div>
 
-          <div className="space-y-8">
+          {/* Timeline Container */}
+          <div className="relative pl-6 sm:pl-10 space-y-10">
+            {/* Animated Laser Beam Vertical Line */}
+            <div className="absolute left-[11px] sm:left-[19px] top-4 bottom-4 w-[2px] bg-gradient-to-b from-primary via-purple-500 to-transparent" />
+
             {experiences.map((exp, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                animate={isExperienceInView ? { opacity: 1, x: 0 } : {}}
+                initial={{ opacity: 0, x: -30 }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
+                className="relative"
               >
-                <Card className="hover-elevate transition-all duration-300" data-testid={`experience-card-${index}`}>
-                  <CardHeader>
-                    <div className="flex items-start gap-4">
-                      <div className="p-3 rounded-lg bg-primary/10 border border-primary/20">
-                        <Briefcase className="w-8 h-8 text-primary" />
+                {/* Milestone Node Dot */}
+                <div className="absolute -left-[27px] sm:-left-[35px] top-6 w-5 h-5 rounded-full bg-[#050811] border-2 border-primary flex items-center justify-center shadow-[0_0_12px_rgba(59,130,246,0.8)]">
+                  <div className="w-2 h-2 rounded-full bg-primary animate-ping" />
+                </div>
+
+                {/* Experience Card */}
+                <TiltCard glowColor={exp.glow} className="p-7 sm:p-8">
+                  <div className="space-y-5">
+                    {/* Header: Title, Company, Period */}
+                    <div className="flex flex-wrap items-start justify-between gap-4">
+                      <div>
+                        <div className="flex items-center gap-2 mb-1">
+                          <h4 className="text-xl sm:text-2xl font-bold text-foreground">{exp.title}</h4>
+                          <span className="px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-primary/10 border border-primary/20 text-primary">
+                            {exp.type}
+                          </span>
+                        </div>
+                        <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground font-medium">
+                          <span className="text-foreground flex items-center gap-1.5">
+                            <Building className="w-3.5 h-3.5 text-primary" />
+                            {exp.company}
+                          </span>
+                          <span>•</span>
+                          <span className="flex items-center gap-1.5">
+                            <MapPin className="w-3.5 h-3.5 text-muted-foreground" />
+                            {exp.location}
+                          </span>
+                        </div>
                       </div>
-                      <div className="flex-1">
-                        <CardTitle className="text-xl mb-1">{exp.title}</CardTitle>
-                        <p className="text-muted-foreground">
-                          {exp.company} • {exp.location}
-                        </p>
-                        <p className="text-sm text-muted-foreground mt-1">{exp.period}</p>
+
+                      <div className="px-3 py-1 rounded-full glass-pill border-white/10 text-xs font-mono text-cyan-300 flex items-center gap-1.5">
+                        <Calendar className="w-3.5 h-3.5 text-cyan-400" />
+                        {exp.period}
                       </div>
                     </div>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2">
-                      {exp.achievements.map((achievement, achIndex) => (
-                        <li key={achIndex} className="flex items-start gap-3">
-                          <Sparkles className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
-                          <span className="text-muted-foreground">{achievement}</span>
-                        </li>
+
+                    {/* Bullet Points */}
+                    <div className="space-y-3 pt-2">
+                      {exp.achievements.map((item, i) => (
+                        <div key={i} className="flex items-start gap-3 text-sm text-muted-foreground leading-relaxed">
+                          <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
+                          <span>{item}</span>
+                        </div>
                       ))}
-                    </ul>
-                  </CardContent>
-                </Card>
+                    </div>
+
+                    {/* Skill Tags */}
+                    <div className="flex flex-wrap gap-1.5 pt-3 border-t border-white/[0.06]">
+                      {exp.skills.map((skill, sIdx) => (
+                        <span
+                          key={sIdx}
+                          className="px-2.5 py-0.5 rounded-md text-[11px] font-mono bg-white/[0.04] border border-white/[0.08] text-white/80"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </TiltCard>
               </motion.div>
             ))}
           </div>
-
-          {/* Education */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isExperienceInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-16"
-          >
-            <h3 className="text-3xl font-bold mb-8 font-[family-name:var(--font-display)] flex items-center gap-3">
-              <GraduationCap className="w-8 h-8 text-primary" />
-              Education
-            </h3>
-            <div className="grid md:grid-cols-3 gap-6">
-              {education.map((edu, index) => (
-                <Card key={index} className="hover-elevate transition-all" data-testid={`education-card-${index}`}>
-                  <CardHeader>
-                    <CardTitle className="text-lg">{edu.degree}</CardTitle>
-                    <p className="text-sm text-muted-foreground">{edu.institution}</p>
-                    <p className="text-xs text-muted-foreground">{edu.location}</p>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">{edu.period}</p>
-                    <p className="text-sm font-medium text-primary mt-2">{edu.score}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </motion.div>
         </div>
-      </section>
-    );
+
+        {/* Education Section */}
+        <div className="space-y-8 pt-8">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center">
+              <GraduationCap className="w-5 h-5 text-purple-400" />
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold text-foreground">Academic Education</h3>
+              <p className="text-xs text-muted-foreground">Degree & foundational coursework</p>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-1 gap-6 max-w-4xl">
+            {education.map((edu, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 25 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
+                <TiltCard glowColor="purple" className="p-7 sm:p-8 flex flex-col justify-between h-full group">
+                  <div className="space-y-4">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <div className="flex items-center gap-3">
+                        <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center">
+                          <Award className="w-6 h-6 text-purple-400 group-hover:scale-110 transition-transform" />
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-xl text-foreground group-hover:text-purple-300 transition-colors">
+                            {edu.degree}
+                          </h4>
+                          <p className="text-sm text-muted-foreground font-medium">
+                            {edu.institution} • {edu.location}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-2">
+                        <span className="px-3 py-1 rounded-full text-xs font-mono font-medium bg-purple-500/15 text-purple-300 border border-purple-500/30">
+                          {edu.period}
+                        </span>
+                        <span className="px-3 py-1 rounded-full text-xs font-mono font-medium bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
+                          {edu.badge}
+                        </span>
+                      </div>
+                    </div>
+
+                    <p className="text-sm text-muted-foreground leading-relaxed pt-2">
+                      {edu.highlights}
+                    </p>
+                  </div>
+                </TiltCard>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
 }
